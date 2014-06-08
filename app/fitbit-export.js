@@ -3,10 +3,13 @@
 var express = require('express'),
     app = express(),
     path = require('path'),
+    morgan = require('morgan'),
     getConfig = require('./get-config'),
     auth = require('./auth'),
     _ = require('lodash'),
     server;
+
+app.use(morgan());
 
 app.get('/', function(req, res){
     res.render('index.ejs', {
