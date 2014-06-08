@@ -40,8 +40,9 @@ app.get('/', function(req, res){
     }).fail(function(err) {
         res.render('index.ejs', {
             user: user,
-            err
+            err: err
         });
+    });
 });
 
 // https://github.com/visionmedia/express/pull/2165
