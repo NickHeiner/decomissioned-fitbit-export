@@ -9,7 +9,11 @@
     <div class="row">
         <div class="small-12 columns">
             <h1>Fitbit Data Export</h1>
+            <% if (!loggedIn) { %>
             <p>Please <a href="/auth/fitbit">sign in</a> with your fitbit account.</p>
+            <% } else { %>
+            <p>You are logged in.</p>
+            <% }%>
         </div>
     </div>
 </body>

@@ -29,6 +29,8 @@
   "dependencies": {
     "ejs": "^1.0.0",
     "passport": "^0.2.0",
-    "passport-fitbit": "^0.1.2"
+    "passport-fitbit": "^0.1.2",
+    "connect": "^2.19.4",
+    "lodash": "^2.4.1"
   }
 }
