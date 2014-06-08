@@ -9,7 +9,8 @@ module.exports = function(grunt) {
             options: {
                 node: true
             },
-            grunt: ['Gruntfile.js']
+            grunt: ['Gruntfile.js'],
+            app: ['app/**/*.js']
         }
     });
 
