@@ -21,7 +21,9 @@ function auth(app) {
         callbackPath,
         passport.authenticate('fitbit', { failureRedirect: '/?error=auth_failed' }),
         function(req, res) {
-            res.redirect('/');
+            console.log('req.user', req.user);
+            res.json(req.user);
+//            res.redirect('/');
         }
     );
 
