@@ -29,10 +29,8 @@ app.get('/', function(req, res){
         timeSeriesPromise = userExists ? getTimeSeries(user) : q([]);
 
     timeSeriesPromise.then(function(timeSeries) {
-        var timeSeries = [{foo: 'bar'}],
-
         // We will assume that every entry in timeSeries has the same keys.
-            timeSeriesKeys = _.keys(_.first(timeSeries));
+        var timeSeriesKeys = _.keys(_.first(timeSeries));
 
         res.render('index.ejs', {
             user: user,
