@@ -22,7 +22,7 @@ function getTimeSeries(app, user, baseDate, period, resourceCategory, resourceSu
         requestUrl = url.format({
             protocol: 'http',
             hostname: 'api.fitbit.com',
-            pathname: _.template('/1/user/-/<%= resourceCategory %>/<%= resourceSubcategory %>/date/<%= baseDate %>/<% period %>.json', {
+            pathname: _.template('/1/user/-/<%= resourceCategory %>/<%= resourceSubcategory %>/date/<%= baseDate %>/<%= period %>.json', {
                 resourceCategory: resourceCategory,
                 resourceSubcategory: resourceSubcategory,
                 baseDate: baseDate,
