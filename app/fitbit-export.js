@@ -6,12 +6,12 @@ var express = require('express'),
     morgan = require('morgan'),
     connect = require('connect'),
     q = require('q'),
-    getTimeSeries = require('./get-time-series'),
+    _ = require('lodash'),
+    getTimeSeries = _.curry(require('./get-time-series'), app),
     traverse = require('traverse'),
     passport = require('passport'),
     getConfig = require('./get-config'),
     auth = require('./auth'),
-    _ = require('lodash'),
     server;
 
 app.use(morgan());
