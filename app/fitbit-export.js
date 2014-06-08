@@ -37,6 +37,8 @@ app.get('/', function(req, res){
             timeSeries: timeSeries,
             timeSeriesKeys: timeSeriesKeys
         });
+    }).fail(function(err) {
+        throw err;
     });
 });
 
