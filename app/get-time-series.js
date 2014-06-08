@@ -2,6 +2,7 @@
 
 var _ = require('lodash'),
     q = require('q'),
+    traverse = require('traverse'),
     getTimeSeriesForResource = require('./get-time-series-for-resource'),
     combineFitbitResponses = require('./combine-fitbit-responses'),
     resources = Object.freeze({
@@ -39,15 +40,20 @@ var _ = require('lodash'),
         ]
     });
 
-function getTimeSeries(app, user) {
+function getTimeSeries(app, user, rawOpts) {
 
-    var resourcePromises = _(resources)
+    var opts = _.merge({
+            baseDate: '2014-06-08',
+            timePeriod: '7d'
+        }, rawOpts),
+        resourcePromises = _(resources)
             .map(function(subCategories, category) {
                 return _.map(subCategories, function(subCategory) {
-                    return getTimeSeriesForResource(app, user, '2013-12-01', '7d', category, subCategory);
+                    return getTimeSeriesForResource(app, user, opts.baseDate, opts.timePeriod, category, subCategory);
                 });
             })
             .flatten()
+            .first(opts.limitKeys)
             .valueOf();
 
     return q.all(resourcePromises).then(function(timeSeriesPerResource) {

@@ -13,36 +13,7 @@
                 <p>Please <a href="/auth/fitbit">sign in</a> with your fitbit account.</p>
             <% } else { %>
                 <p><img src="<%= user._json.user.avatar150 %>"/> <%= user.displayName %></p>
-
-                <% if (err) { %>
-                    <p>Could not fetch fitbit data because: <%= JSON.stringify(err) %></p>
-                    <p>This could be a bug in this app, or in Fitbit itself.</p>
-                <% } else { %>
-                    <p>Here is a sample of the data available using the
-                        <a href="https://wiki.fitbit.com/display/API/API-Get-Time-Series">Fitbit Time Series API</a>.
-                    </p>
-
-                    <table>
-                        <thead>
-                        <tr>
-                            <% timeSeriesKeys.forEach(function(key) { %>
-                            <td><%= key %></td>
-                            <% }) %>
-                        </tr>
-                        </thead>
-                        <tbody>
-                        <% timeSeries.forEach(function(timeSeriesRow) { %>
-                        <tr>
-                            <% timeSeriesKeys.forEach(function(key) { %>
-                            <td><%= timeSeriesRow[key] %></td>
-                            <% }) %>
-                        </tr>
-                        <% }) %>
-                        </tbody>
-                    </table>
-
-                    <p><a href="/export.csv">Download all available data as a csv</a>. (This may be slow.)</p>
-                <% } %>
+                <p><a href="/export.csv">Download all available data as a csv</a></p>
             <% } %>
         </div>
     </div>
