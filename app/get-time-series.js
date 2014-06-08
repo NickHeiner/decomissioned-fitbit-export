@@ -56,6 +56,8 @@ function getTimeSeries(app, user, rawOpts) {
             .first(opts.limitKeys)
             .valueOf();
 
+    console.log('promises', resourcePromises);
+
     return q.all(resourcePromises).then(function(timeSeriesPerResource) {
         console.log('tspr', timeSeriesPerResource);
         return combineFitbitResponses(_.flatten(timeSeriesPerResource));
