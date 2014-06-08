@@ -5,13 +5,13 @@ var getTimeSeries = require('./get-time-series'),
     _ = require('lodash'),
     qJson2csv = q.denodeify(require('json2csv'));
 
-function exportCsv(req, res) {
+function exportCsv(app, req, res) {
     if (!req.session.passport.user) {
         res.redirect('/');
         return;
     }
 
-    getTimeSeries(req.session.passport.user).then(function(timeSeries) {
+    getTimeSeries(app, req.session.passport.user).then(function(timeSeries) {
         // assume that all entries have the same keys
         var keys = _.keys(_.first(timeSeries));
         return qJson2csv({data: timeSeries, fields: keys});

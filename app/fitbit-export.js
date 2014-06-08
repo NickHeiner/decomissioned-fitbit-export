@@ -9,9 +9,9 @@ var express = require('express'),
     traverse = require('traverse'),
     passport = require('passport'),
     getConfig = require('./get-config'),
-    exportCsv = require('./export-csv'),
-    auth = require('./auth'),
     _ = require('lodash'),
+    exportCsv = _.curry(require('./export-csv'))(app),
+    auth = require('./auth'),
     server;
 
 app.use(morgan());
