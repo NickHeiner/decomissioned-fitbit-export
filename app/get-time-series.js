@@ -5,14 +5,37 @@ var _ = require('lodash'),
     getTimeSeriesForResource = require('./get-time-series-for-resource'),
     combineFitbitResponses = require('./combine-fitbit-responses'),
     resources = Object.freeze({
+        food: [
+            'log/caloriesIn',
+            'log/water'
+        ],
         activities: [
-            'distance',
             'calories',
-            'minutesSedentary'
+            'caloriesBMR',
+            'steps',
+            'distance',
+            'floors',
+            'elevation',
+            'minutesSedentary',
+            'minutesLightlyActive',
+            'minutesFairlyActive',
+            'minutesVeryActive',
+            'activityCalories',
         ],
         sleep: [
             'startTime',
-            'timeInBed'
+            'timeInBed',
+            'minutesAsleep',
+            'awakeningsCount',
+            'minutesAwake',
+            'minutesToFallAsleep',
+            'minutesAfterWakeup',
+            'efficiency',
+        ],
+        body: [
+            'weight',
+            'bmi',
+            'fat',
         ]
     });
 
