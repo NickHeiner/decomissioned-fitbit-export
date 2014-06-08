@@ -4,7 +4,8 @@
   "description": "A webapp to make exporting fitbit data easier",
   "main": "lib/fitbit-export.js",
   "scripts": {
-    "test": "grunt test"
+    "test": "grunt test",
+    "start": "node lib/fitbit-export.js"
   },
   "repository": {
     "type": "git",
