@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title>Fitbit Data Export</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/foundation/5.2.3/css/foundation.css" />
+</head>
+<body>
+    <div class="row">
+        <div class="small-12 columns">
+            <h1>Fitbit Data Export</h1>
+            <% if (!loggedIn) { %>
+            <p>Please <a href="/auth/fitbit">sign in</a> with your fitbit account.</p>
+            <% } else { %>
+            <p>You are logged in.</p>
+            <% }%>
+        </div>
+    </div>
+</body>
+</html>

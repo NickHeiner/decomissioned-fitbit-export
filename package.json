@@ -2,9 +2,10 @@
   "name": "fitbit-export",
   "version": "1.0.0",
   "description": "A webapp to make exporting fitbit data easier",
-  "main": "lib/fitbit-export.js",
+  "main": "app/fitbit-export.js",
   "scripts": {
-    "test": "exit 0"
+    "test": "grunt test",
+    "start": "npm test && node app/fitbit-export.js"
   },
   "repository": {
     "type": "git",
@@ -18,5 +19,18 @@
   "bugs": {
     "url": "https://github.com/NickHeiner/fitbit-export/issues"
   },
-  "homepage": "https://github.com/NickHeiner/fitbit-export"
+  "homepage": "https://github.com/NickHeiner/fitbit-export",
+  "devDependencies": {
+    "grunt": "^0.4.5",
+    "grunt-contrib-jshint": "^0.10.0",
+    "load-grunt-tasks": "^0.4.0",
+    "grunt-cli": "^0.1.13"
+  },
+  "dependencies": {
+    "ejs": "^1.0.0",
+    "passport": "^0.2.0",
+    "passport-fitbit": "^0.1.2",
+    "connect": "^2.19.4",
+    "lodash": "^2.4.1"
+  }
 }
