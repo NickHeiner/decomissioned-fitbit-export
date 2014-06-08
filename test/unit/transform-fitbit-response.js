@@ -19,14 +19,16 @@ describe('transform-fitbit-response', function() {
             ]
         };
 
-        expect(transformFitbitResponse(response)).to.deep.equal({
-            '2013-11-25': {
+        expect(transformFitbitResponse(response)).to.deep.equal([
+            {
+                dateTime: '2013-11-25',
                 'activities-distance': 2.419
             },
-            '2013-11-26': {
+            {
+                dateTime: '2013-11-26',
                 'activities-distance': 4.83
             }
-        });
+        ]);
     });
 
 });
