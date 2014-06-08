@@ -15,8 +15,6 @@ function auth(app) {
         callbackPath,
         passport.authenticate('fitbit', { failureRedirect: '/?error=auth_failed' }),
         function(req, res) {
-//            console.log('req.user', req.user);
-//            res.json(req.user);
             res.redirect('/');
         }
     );
@@ -42,6 +40,10 @@ function auth(app) {
         callbackUrl: callbackUrl
     }, function(token, tokenSecret, profile, done) {
         console.log('Logged in user ', profile.id, ' with display name ', profile.displayName);
+
+        profile.token = token;
+        profile.tokenSecret = tokenSecret;
+
         done(null, profile);
     }));
 }
