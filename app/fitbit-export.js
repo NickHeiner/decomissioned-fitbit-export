@@ -2,8 +2,8 @@
 
 var express = require('express'),
     app = express(),
-    getConfig = require('./app/get-config'),
-    auth = require('./app/auth'),
+    getConfig = require('./get-config'),
+    auth = require('./auth'),
     _ = require('lodash'),
     server;
 
