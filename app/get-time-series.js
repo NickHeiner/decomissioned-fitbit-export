@@ -19,8 +19,8 @@ var _ = require('lodash'),
 function getTimeSeries(app, user) {
 
     var resourcePromises = _(resources)
-            .map(function(subCategory, categories) {
-                return _.map(categories, function(category) {
+            .map(function(subCategories, category) {
+                return _.map(subCategories, function(subCategory) {
                     return getTimeSeriesForResource(app, user, '2013-12-01', '7d', category, subCategory);
                 });
             })
