@@ -35,6 +35,8 @@ function getTimeSeries(app, user) {
         }
     );
 
+    return deferred.promise;
+
 //    return q.ninvoke(
 //        oauth,
 //        'get',
