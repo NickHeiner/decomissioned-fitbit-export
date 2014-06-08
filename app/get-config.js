@@ -4,7 +4,7 @@ var configMap = Object.freeze({
     production: {
         fitbitClientKey: process.env.FITBIT_DATA_EXPORT_CLIENT_KEY,
             fitbitClientSecret: process.env.FITBIT_DATA_EXPORT_CLIENT_SECRET,
-            host: 'TODO',
+            host: 'fitbit-export.azurewebsites.net',
             port: 3001
     },
     development: {
