@@ -5,7 +5,7 @@ var _ = require('lodash'),
     getTimeSeriesForResource = require('./get-time-series-for-resource'),
     combineFitbitResponses = require('./combine-fitbit-responses'),
     resources = Object.freeze({
-        food: [
+        foods: [
             'log/caloriesIn',
             'log/water'
         ],
