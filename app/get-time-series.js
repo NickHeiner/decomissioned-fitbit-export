@@ -51,9 +51,6 @@ function getTimeSeries(app, user) {
             .valueOf();
 
     return q.all(resourcePromises).then(function(timeSeriesPerResource) {
-
-        console.log('timeSeriesPerResource', timeSeriesPerResource, 'combined', combineFitbitResponses(timeSeriesPerResource));
-
         return combineFitbitResponses(_.flatten(timeSeriesPerResource));
     });
 }
