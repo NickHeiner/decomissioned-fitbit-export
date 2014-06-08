@@ -43,10 +43,10 @@ var _ = require('lodash'),
 function getTimeSeries(app, user, rawOpts) {
 
     var opts = _.merge({
-            baseDate: '2014-06-08',
-            timePeriod: '7d'
+            baseDate: 'today',
+            timePeriod: 'max'
         }, rawOpts),
-        
+
         resourcePromises = _(resources)
             .map(function(subCategories, category) {
                 return _.map(subCategories, function(subCategory) {
