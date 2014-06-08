@@ -41,10 +41,10 @@ function getTimeSeries(app, user, baseDate, period, resourceCategory, resourceSu
 
             if (err) {
                 deferred.reject(err);
+                return;
             }
 
             jsonData = JSON.parse(data);
-
 
             deferred.resolve(jsonData[responseKey]);
         }

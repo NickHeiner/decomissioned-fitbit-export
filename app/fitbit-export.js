@@ -38,9 +38,10 @@ app.get('/', function(req, res){
             timeSeriesKeys: timeSeriesKeys
         });
     }).fail(function(err) {
-        console.log('err', err);
-        throw err;
-    });
+        res.render('index.ejs', {
+            user: user,
+            err
+        });
 });
 
 // https://github.com/visionmedia/express/pull/2165

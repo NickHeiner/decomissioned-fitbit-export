@@ -13,26 +13,32 @@
                 <p>Please <a href="/auth/fitbit">sign in</a> with your fitbit account.</p>
             <% } else { %>
                 <p><img src="<%= user._json.user.avatar150 %>"/> <%= user.displayName %></p>
-                <p>Here is all your data accessible via the <a href="https://wiki.fitbit.com/display/API/API-Get-Time-Series">Fitbit Time Series API</a>:</p>
 
-                <table>
-                    <thead>
-                    <tr>
-                        <% timeSeriesKeys.forEach(function(key) { %>
-                        <td><%= key %></td>
+                <% if (err) { %>
+                    <p>Could not fetch fitbit data because: <%= err %></p>
+                    <p>This could be a bug in this app, or in Fitbit itself.</p>
+                <% } else { %>
+                    <p>Here is all your data accessible via the <a href="https://wiki.fitbit.com/display/API/API-Get-Time-Series">Fitbit Time Series API</a>:</p>
+
+                    <table>
+                        <thead>
+                        <tr>
+                            <% timeSeriesKeys.forEach(function(key) { %>
+                            <td><%= key %></td>
+                            <% }) %>
+                        </tr>
+                        </thead>
+                        <tbody>
+                        <% timeSeries.forEach(function(timeSeriesRow) { %>
+                        <tr>
+                            <% timeSeriesKeys.forEach(function(key) { %>
+                            <td><%= timeSeriesRow[key] %></td>
+                            <% }) %>
+                        </tr>
                         <% }) %>
-                    </tr>
-                    </thead>
-                    <tbody>
-                    <% timeSeries.forEach(function(timeSeriesRow) { %>
-                    <tr>
-                        <% timeSeriesKeys.forEach(function(key) { %>
-                        <td><%= timeSeriesRow[key] %></td>
-                        <% }) %>
-                    </tr>
-                    <% }) %>
-                    </tbody>
-                </table>
+                        </tbody>
+                    </table>
+                <% } %>
             <% } %>
         </div>
     </div>
