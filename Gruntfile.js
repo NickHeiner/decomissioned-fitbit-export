@@ -10,7 +10,13 @@ module.exports = function(grunt) {
                 node: true
             },
             grunt: ['Gruntfile.js'],
-            app: ['app/**/*.js']
+            app: ['app/**/*.js'],
+            test: {
+                options: {
+                    mocha: true
+                },
+                src: ['test/**/*.js']
+            }
         },
         mochaTest: {
             test: {

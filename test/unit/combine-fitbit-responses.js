@@ -27,7 +27,7 @@ describe('combine-fitbit-responses', function() {
                 dateTime: '2013-12-01',
                 'sleep-timeInBed': 212
             }
-        ]
+        ];
 
         expect(combineFitbitResponses(responses)).to.deep.equal([
             {
@@ -43,10 +43,6 @@ describe('combine-fitbit-responses', function() {
                 dateTime: '2013-12-01',
                 'body-weight': 152,
                 'sleep-timeInBed': 212
-            },
-            {
-                dateTime: '2013-11-26',
-                'activities-distance': 4.83
             }
         ]);
     });
