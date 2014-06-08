@@ -17,9 +17,17 @@ var _ = require('lodash'),
     });
 
 function getTimeSeries(app, user) {
-    return q.all(_.map(resources, function(subCategory, category) {
-        return getTimeSeriesForResource(app, user, '2013-12-01', '7d', category, subCategory);
-    })).then(function(timeSeriesPerResource) {
+
+    var resourcePromises = _(resources)
+            .map(function(subCategory, categories) {
+                return _.map(categories, function(category) {
+                    return getTimeSeriesForResource(app, user, '2013-12-01', '7d', category, subCategory);
+                });
+            })
+            .flatten()
+            .valueOf();
+
+    return q.all(resourcePromises).then(function(timeSeriesPerResource) {
         return combineFitbitResponses(timeSeriesPerResource);
     });
 }
