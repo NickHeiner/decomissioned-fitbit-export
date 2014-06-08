@@ -30,9 +30,7 @@ app.get('/', function(req, res){
 
     timeSeriesPromise.then(function(timeSeries) {
         // We will assume that every entry in timeSeries has the same keys.
-        var timeSeriesKeys = _.keys(_.first(timeSeries));
-
-        console.log('timeSeries', timeSeries);
+        var timeSeriesKeys = _.keys(_.first(timeSeries, 5));
 
         res.render('index.ejs', {
             user: user,

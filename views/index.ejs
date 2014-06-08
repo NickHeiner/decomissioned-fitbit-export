@@ -18,7 +18,9 @@
                     <p>Could not fetch fitbit data because: <%= JSON.stringify(err) %></p>
                     <p>This could be a bug in this app, or in Fitbit itself.</p>
                 <% } else { %>
-                    <p>Here is all your data accessible via the <a href="https://wiki.fitbit.com/display/API/API-Get-Time-Series">Fitbit Time Series API</a>:</p>
+                    <p>Here is a sample of the data available using the
+                        <a href="https://wiki.fitbit.com/display/API/API-Get-Time-Series">Fitbit Time Series API</a>.
+                    </p>
 
                     <table>
                         <thead>
@@ -38,6 +40,8 @@
                         <% }) %>
                         </tbody>
                     </table>
+
+                    <p><a href="/export.csv">Download all available data as a csv</a>. (This may be slow.)</p>
                 <% } %>
             <% } %>
         </div>
