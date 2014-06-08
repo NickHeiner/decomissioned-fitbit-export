@@ -13,7 +13,8 @@ app.use(morgan());
 
 app.get('/', function(req, res){
     res.render('index.ejs', {
-        user: req.user
+        user: req.user,
+        loggedIn: false,
     });
 });
 
