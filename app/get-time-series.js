@@ -19,7 +19,7 @@ function getTimeSeries(app, user) {
 
     return q.ninvoke(
         oauth,
-        'post',
+        'get',
         'http://api.fitbit.com/1/user/-/activities/distance/date/2013-12-01/7d.json',
         user.token,
         user.tokenSecret,
