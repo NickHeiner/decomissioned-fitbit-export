@@ -13,27 +13,22 @@
                 <p>Please <a href="/auth/fitbit">sign in</a> with your fitbit account.</p>
             <% } else { %>
                 <p><img src="<%= user._json.user.avatar150 %>"/> <%= user.displayName %></p>
-                <p>Here is all your data accessible via the <a href="https://wiki.fitbit.com/display/API/API-Get-Time-Series">Fitbit Time Series API</a>:</p>
-
-                <table>
-                    <thead>
-                    <tr>
-                        <% timeSeriesKeys.forEach(function(key) { %>
-                        <td><%= key %></td>
-                        <% }) %>
-                    </tr>
-                    </thead>
-                    <tbody>
-                    <% timeSeries.forEach(function(timeSeriesRow) { %>
-                    <tr>
-                        <% timeSeriesKeys.forEach(function(key) { %>
-                        <td><%= timeSeriesRow[key] %></td>
-                        <% }) %>
-                    </tr>
-                    <% }) %>
-                    </tbody>
-                </table>
+                <p><a href="/export.csv">Download all available data as a csv</a>.</p>
+                <ul>
+                    <li>(It would probably be easiest to <kbd>right click</kbd> that link and <kbd>save as</kbd>,
+                        then open in Excel or the csv manipulation program of your choice.)</li>
+                    <li>If you have a lot of data, this could take a little while. If you are opening the page
+                        directly, the page may be slow to load. If you are downloading it as a file, the browser
+                        may delay before showing you the "save file as" dialog. This delay does not indicate a problem;
+                        it just takes Fitbit time to manifest all your data.
+                    </li>
+                    <li>All units are in metric as listed on the
+                        <a href="https://wiki.fitbit.com/display/API/API+Unit+System">Fitbit api page</a>.</li>
+                </ul>
             <% } %>
+            <p>This is an app by <a href="https://www.twitter.com/nickheiner">Nick Heiner</a>.
+                <a href="https://github.com/NickHeiner/fitbit-export">Source code is available on Github</a>
+                - PRs accepted!</p>
         </div>
     </div>
 </body>

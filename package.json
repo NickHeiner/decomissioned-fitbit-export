@@ -1,6 +1,6 @@
 {
   "name": "fitbit-export",
-  "version": "1.0.0",
+  "version": "1.1.0",
   "description": "A webapp to make exporting fitbit data easier",
   "main": "app/fitbit-export",
   "scripts": {
@@ -24,7 +24,9 @@
     "grunt": "^0.4.5",
     "grunt-contrib-jshint": "^0.10.0",
     "load-grunt-tasks": "^0.4.0",
-    "grunt-cli": "^0.1.13"
+    "grunt-cli": "^0.1.13",
+    "grunt-mocha-test": "^0.11.0",
+    "chai": "^1.9.1"
   },
   "engines": {
     "node": "0.10.26"
@@ -39,6 +41,7 @@
     "morgan": "^1.1.1",
     "traverse": "^0.6.6",
     "q": "^1.0.1",
-    "oauth": "^0.9.12"
+    "oauth": "^0.9.12",
+    "json2csv": "^2.2.1"
   }
 }

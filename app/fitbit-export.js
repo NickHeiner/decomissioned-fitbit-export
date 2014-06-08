@@ -6,12 +6,12 @@ var express = require('express'),
     morgan = require('morgan'),
     connect = require('connect'),
     q = require('q'),
-    getTimeSeries = require('./get-time-series'),
     traverse = require('traverse'),
     passport = require('passport'),
     getConfig = require('./get-config'),
-    auth = require('./auth'),
     _ = require('lodash'),
+    exportCsv = _.curry(require('./export-csv'))(app),
+    auth = require('./auth'),
     server;
 
 app.use(morgan());
@@ -25,23 +25,14 @@ app.get('/', function(req, res){
     var userPath = ['session', 'passport', 'user'],
         traverseReq = traverse(req),
         userExists = traverseReq.has(userPath),
-        user = userExists && traverseReq.get(userPath),
-        timeSeriesPromise = userExists ? getTimeSeries(app, user) : q([]);
+        user = userExists && traverseReq.get(userPath);
 
-    timeSeriesPromise.then(function(timeSeries) {
-        // We will assume that every entry in timeSeries has the same keys.
-        var timeSeriesKeys = _.keys(_.first(timeSeries));
-
-        res.render('index.ejs', {
-            user: user,
-            timeSeries: timeSeries,
-            timeSeriesKeys: timeSeriesKeys
-        });
-    }).fail(function(err) {
-        console.log('err', err);
-        throw err;
+    res.render('index.ejs', {
+        user: user
     });
 });
+
+app.get('/export.csv', exportCsv);
 
 // https://github.com/visionmedia/express/pull/2165
 app.set('views', path.join(__dirname, '..', 'views'));
