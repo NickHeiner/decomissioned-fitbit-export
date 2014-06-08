@@ -2,6 +2,7 @@
 
 var express = require('express'),
     app = express(),
+    path = require('path'),
     getConfig = require('./get-config'),
     auth = require('./auth'),
     _ = require('lodash'),
@@ -13,6 +14,7 @@ app.get('/', function(req, res){
     });
 });
 
+app.set('views', path.join(__dirname, '..', 'views'))
 app.set('view engine', require('ejs'));
 
 auth(app);
