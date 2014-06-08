@@ -45,7 +45,8 @@ function auth(app) {
         consumerSecret: config.fitbitClientSecret,
         callbackUrl: callbackUrl
     }, function(token, tokenSecret, profile, done) {
-        console.log('auth', arguments);
+        console.log('Logged in user ', profile.id, ' with display name ', profile.displayName);
+        done(null, profile);
     }));
 }
 
