@@ -36,6 +36,7 @@
     "connect": "^2.19.4",
     "lodash": "^2.4.1",
     "express": "^4.4.1",
-    "morgan": "^1.1.1"
+    "morgan": "^1.1.1",
+    "traverse": "^0.6.6"
   }
 }

@@ -5,6 +5,7 @@ var express = require('express'),
     path = require('path'),
     morgan = require('morgan'),
     connect = require('connect'),
+    traverse = require('traverse'),
     passport = require('passport'),
     getConfig = require('./get-config'),
     auth = require('./auth'),
@@ -20,9 +21,9 @@ app.use(passport.session());
 
 app.get('/', function(req, res){
     console.log('session', req.session);
+    var userExists = traverse(req).has(['session', 'passport', 'user']);
     res.render('index.ejs', {
-        user: req.user,
-        loggedIn: false
+        user: userExists && req.session.passport.user
     });
 });
 
