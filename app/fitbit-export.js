@@ -34,6 +34,7 @@ app.get('/', function(req, res){
 
         res.render('index.ejs', {
             user: user,
+            err: null,
             timeSeries: timeSeries,
             timeSeriesKeys: timeSeriesKeys
         });
