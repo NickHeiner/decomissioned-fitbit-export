@@ -13,7 +13,14 @@
                 <p>Please <a href="/auth/fitbit">sign in</a> with your fitbit account.</p>
             <% } else { %>
                 <p><img src="<%= user._json.user.avatar150 %>"/> <%= user.displayName %></p>
-                <p><a href="/export.csv">Download all available data as a csv</a></p>
+                <p><a href="/export.csv">Download all available data as a csv</a>.</p>
+                <ul>
+                    <li>(It would probably be easiest to right click that link and save as, then open in excel
+                        or the csv manipulation program of your choice.)</li>
+                    <li>If you have a lot of data, this could take a little while.</li>
+                    <li>All units are in metric as listed on the
+                        <a href="https://wiki.fitbit.com/display/API/API+Unit+System">Fitbit api page</a>.</li>
+                </ul>
             <% } %>
             <p>This is an app by <a href="https://www.twitter.com/nickheiner">Nick Heiner</a>.
                 <a href="https://github.com/NickHeiner/fitbit-export">Source code is available on Github</a>
