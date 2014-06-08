@@ -1,0 +1,22 @@
+{
+  "name": "fitbit-export",
+  "version": "1.0.0",
+  "description": "A webapp to make exporting fitbit data easier",
+  "main": "lib/fitbit-export.js",
+  "scripts": {
+    "test": "grunt test"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/NickHeiner/fitbit-export.git"
+  },
+  "keywords": [
+    "fitbit"
+  ],
+  "author": "Nick Heiner <nth23@cornell.edu>",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/NickHeiner/fitbit-export/issues"
+  },
+  "homepage": "https://github.com/NickHeiner/fitbit-export"
+}
