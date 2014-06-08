@@ -5,7 +5,7 @@
   "main": "app/fitbit-export.js",
   "scripts": {
     "test": "grunt test",
-    "start": "node app/fitbit-export.js"
+    "start": "npm test && node app/fitbit-export.js"
   },
   "repository": {
     "type": "git",
@@ -27,6 +27,8 @@
     "grunt-cli": "^0.1.13"
   },
   "dependencies": {
-    "ejs": "^1.0.0"
+    "ejs": "^1.0.0",
+    "passport": "^0.2.0",
+    "passport-fitbit": "^0.1.2"
   }
 }
