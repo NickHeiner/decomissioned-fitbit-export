@@ -14,11 +14,12 @@ app.get('/', function(req, res){
     });
 });
 
+// https://github.com/visionmedia/express/pull/2165
 app.set('views', path.join(__dirname, '..', 'views'))
 app.set('view engine', require('ejs'));
 
 auth(app);
 
 server = app.listen(getConfig(app).port, function() {
-    console.log(require('../package').name + ' express app listening on port %d', server.address().port);
+    console.log(require('../package').name + ' express app listening at', server.address());
 });
