@@ -40,6 +40,13 @@ function getTimeSeries(app, user, baseDate, period, resourceCategory, resourceSu
         user.tokenSecret,
         function(err, data) {
             if (err) {
+                // If this specific field complains, no need to bomb out the entire request;
+                // we'll just say we didn't get anything
+                if (err.statusCode === 400) {
+                    console.log('request url ' + requestUrl + ' for user ' + user.id + 'resulted in a 400');
+                    deferred.resolve([]);
+                    return;
+                }
                 deferred.reject(err);
                 return;
             }
