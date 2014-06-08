@@ -2,8 +2,8 @@
 
 var express = require('express'),
     app = express(),
-    getConfig = require('./get-config'),
-    auth = require('./auth'),
+    getConfig = require('./app/get-config'),
+    auth = require('./app/auth'),
     _ = require('lodash'),
     server;
 
@@ -18,6 +18,5 @@ app.set('view engine', require('ejs'));
 auth(app);
 
 server = app.listen(getConfig(app).port, function() {
-
     console.log('Listening on port %d', server.address().port);
 });

@@ -2,10 +2,10 @@
   "name": "fitbit-export",
   "version": "1.0.0",
   "description": "A webapp to make exporting fitbit data easier",
-  "main": "app/fitbit-export.js",
+  "main": "server.js",
   "scripts": {
     "test": "grunt test",
-    "start": "npm test && node app/fitbit-export.js"
+    "start": "npm test && node server.js"
   },
   "repository": {
     "type": "git",
