@@ -39,7 +39,8 @@ function getTimeSeries(app, user, baseDate, period, resourceCategory, resourceSu
         user.tokenSecret,
         function(err, data) {
             var jsonData,
-                responseKey = [resourceCategory, resourceSubcategory].join('-');
+                responseKey = [resourceCategory, resourceSubcategory].join('-'),
+                dataPoints;
 
             if (err) {
                 deferred.reject(err);
@@ -47,8 +48,9 @@ function getTimeSeries(app, user, baseDate, period, resourceCategory, resourceSu
             }
 
             jsonData = JSON.parse(data);
+            dataPoints = jsonData[responseKey];
 
-            deferred.resolve(jsonData[responseKey]);
+            deferred.resolve(dataPoints);
         }
     );
 
