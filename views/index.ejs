@@ -15,7 +15,7 @@
                 <p><img src="<%= user._json.user.avatar150 %>"/> <%= user.displayName %></p>
 
                 <% if (err) { %>
-                    <p>Could not fetch fitbit data because: <%= err %></p>
+                    <p>Could not fetch fitbit data because: <%= JSON.stringify(err) %></p>
                     <p>This could be a bug in this app, or in Fitbit itself.</p>
                 <% } else { %>
                     <p>Here is all your data accessible via the <a href="https://wiki.fitbit.com/display/API/API-Get-Time-Series">Fitbit Time Series API</a>:</p>
