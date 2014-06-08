@@ -15,19 +15,37 @@ function getTimeSeries(app, user) {
             '1.0',
             null,
             'HMAC-SHA1'
-        );
+        ),
+        deferred = q.defer();
 
-    return q.ninvoke(
-        oauth,
-        'get',
+    console.log('user', user);
+
+    oauth.get(
         'http://api.fitbit.com/1/user/-/activities/distance/date/2013-12-01/7d.json',
         user.token,
         user.tokenSecret,
-        null,
-        null
-    ).then(function(data) {
-        return data['activities-distance'];
-    });
+        function(err, data, res) {
+            console.log('arguments', arguments);
+
+            if (err) {
+                deferred.reject(err);
+            }
+
+            deferred.resolve(data['activities-distance']);
+        }
+    );
+
+//    return q.ninvoke(
+//        oauth,
+//        'get',
+//        'http://api.fitbit.com/1/user/-/activities/distance/date/2013-12-01/7d.json',
+//        user.token,
+//        user.tokenSecret,
+//        null,
+//        null
+//    ).then(function(data) {
+//        return data['activities-distance'];
+//    });
 }
 
 module.exports = getTimeSeries;
