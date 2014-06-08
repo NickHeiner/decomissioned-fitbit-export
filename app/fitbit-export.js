@@ -6,12 +6,12 @@ var express = require('express'),
     morgan = require('morgan'),
     connect = require('connect'),
     q = require('q'),
-    _ = require('lodash'),
-    getTimeSeries = _.curry(require('./get-time-series'), app),
+    getTimeSeries = require('./get-time-series'),
     traverse = require('traverse'),
     passport = require('passport'),
     getConfig = require('./get-config'),
     auth = require('./auth'),
+    _ = require('lodash'),
     server;
 
 app.use(morgan());
@@ -26,7 +26,7 @@ app.get('/', function(req, res){
         traverseReq = traverse(req),
         userExists = traverseReq.has(userPath),
         user = userExists && traverseReq.get(userPath),
-        timeSeriesPromise = userExists ? getTimeSeries(user) : q([]);
+        timeSeriesPromise = userExists ? getTimeSeries(app, user) : q([]);
 
     timeSeriesPromise.then(function(timeSeries) {
         // We will assume that every entry in timeSeries has the same keys.
