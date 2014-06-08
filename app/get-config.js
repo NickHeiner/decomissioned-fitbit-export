@@ -5,14 +5,14 @@ var configMap = Object.freeze({
         fitbitClientKey: process.env.FITBIT_DATA_EXPORT_CLIENT_KEY,
         fitbitClientSecret: process.env.FITBIT_DATA_EXPORT_CLIENT_SECRET,
         host: 'fitbit-export.azurewebsites.net',
-        sessionSecret: process.env.SESSION_SECRET,
+        sessionSecret: process.env.FITBIT_DATA_EXPORT_SESSION_SECRET,
         port: process.env.PORT || 3001
     },
     development: {
         fitbitClientKey: process.env.FITBIT_DATA_EXPORT_CLIENT_KEY,
         fitbitClientSecret: process.env.FITBIT_DATA_EXPORT_CLIENT_SECRET,
         host: 'localhost',
-        sessionSecret: process.env.SESSION_SECRET,
+        sessionSecret: process.env.FITBIT_DATA_EXPORT_SESSION_SECRET,
         port: process.env.PORT || 3001
     }
 });

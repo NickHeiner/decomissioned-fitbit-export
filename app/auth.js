@@ -3,7 +3,6 @@
 var passport = require('passport'),
     getConfig = require('./get-config'),
     url = require('url'),
-    connect = require('connect'),
     FitbitStrategy = require('passport-fitbit').Strategy,
     callbackPath = '/auth/fitbit/callback';
 
@@ -11,19 +10,14 @@ function auth(app) {
     var config = getConfig(app),
         callbackUrl;
 
-    app.use(connect.cookieParser('this is a random string for the cookie parser'));
-    app.use(connect.session());
-    app.use(passport.initialize());
-    app.use(passport.session());
-
     app.get('/auth/fitbit', passport.authenticate('fitbit'));
     app.get(
         callbackPath,
         passport.authenticate('fitbit', { failureRedirect: '/?error=auth_failed' }),
         function(req, res) {
-            console.log('req.user', req.user);
-            res.json(req.user);
-//            res.redirect('/');
+//            console.log('req.user', req.user);
+//            res.json(req.user);
+            res.redirect('/');
         }
     );
 

@@ -4,6 +4,8 @@ var express = require('express'),
     app = express(),
     path = require('path'),
     morgan = require('morgan'),
+    connect = require('connect'),
+    passport = require('passport'),
     getConfig = require('./get-config'),
     auth = require('./auth'),
     _ = require('lodash'),
@@ -11,10 +13,16 @@ var express = require('express'),
 
 app.use(morgan());
 
+app.use(connect.cookieParser());
+app.use(connect.session({secret: getConfig(app).sessionSecret}));
+app.use(passport.initialize());
+app.use(passport.session());
+
 app.get('/', function(req, res){
+    console.log('session', req.session);
     res.render('index.ejs', {
         user: req.user,
-        loggedIn: false,
+        loggedIn: false
     });
 });
 
