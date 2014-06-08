@@ -18,36 +18,25 @@ function getTimeSeries(app, user) {
         ),
         deferred = q.defer();
 
-    console.log('user', user);
-
+    // I wanted to use q.ninvoke here but it didn't work for whatever reason.
     oauth.get(
         'http://api.fitbit.com/1/user/-/activities/distance/date/2013-12-01/7d.json',
         user.token,
         user.tokenSecret,
-        function(err, data, res) {
-            console.log('arguments', arguments);
+        function(err, data) {
+            var jsonData;
 
             if (err) {
                 deferred.reject(err);
             }
 
-            deferred.resolve(data['activities-distance']);
+            var jsonData = JSON.parse(data);
+
+            deferred.resolve(jsonData['activities-distance']);
         }
     );
 
     return deferred.promise;
-
-//    return q.ninvoke(
-//        oauth,
-//        'get',
-//        'http://api.fitbit.com/1/user/-/activities/distance/date/2013-12-01/7d.json',
-//        user.token,
-//        user.tokenSecret,
-//        null,
-//        null
-//    ).then(function(data) {
-//        return data['activities-distance'];
-//    });
 }
 
 module.exports = getTimeSeries;

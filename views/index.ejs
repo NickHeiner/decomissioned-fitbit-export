@@ -12,7 +12,7 @@
             <% if (!user) { %>
                 <p>Please <a href="/auth/fitbit">sign in</a> with your fitbit account.</p>
             <% } else { %>
-                <p>You are logged in as <%= user.displayName %>.</p>
+                <p><img src="<%= user._json.avatar150%>"/> <%= user.displayName %></p>
                 <p>Here is all your data accessible via the <a href="https://wiki.fitbit.com/display/API/API-Get-Time-Series">Fitbit Time Series API</a>:</p>
 
                 <table>
