@@ -39,19 +39,12 @@ function getTimeSeries(app, user, baseDate, period, resourceCategory, resourceSu
         user.token,
         user.tokenSecret,
         function(err, data) {
-            var jsonData,
-                responseKey = [resourceCategory, resourceSubcategory].join('-'),
-                dataPoints;
-
             if (err) {
                 deferred.reject(err);
                 return;
             }
 
-            jsonData = JSON.parse(data);
-            dataPoints = jsonData[responseKey];
-
-            deferred.resolve(transformFitbitResponse(dataPoints));
+            deferred.resolve(transformFitbitResponse(JSON.parse(data)));
         }
     );
 
