@@ -5,6 +5,8 @@ var express = require('express'),
     path = require('path'),
     morgan = require('morgan'),
     connect = require('connect'),
+    q = require('q'),
+    getTimeSeries = require('./get-time-series'),
     traverse = require('traverse'),
     passport = require('passport'),
     getConfig = require('./get-config'),
@@ -20,10 +22,23 @@ app.use(passport.initialize());
 app.use(passport.session());
 
 app.get('/', function(req, res){
-    console.log('session', req.session);
-    var userExists = traverse(req).has(['session', 'passport', 'user']);
-    res.render('index.ejs', {
-        user: userExists && req.session.passport.user
+    var userPath = ['session', 'passport', 'user'],
+        traverseReq = traverse(req),
+        userExists = traverseReq.has(userPath),
+        user = userExists && traverseReq.get(userPath),
+        timeSeriesPromise = userExists ? getTimeSeries(user) : q([]);
+
+    timeSeriesPromise.then(function(timeSeries) {
+        var timeSeries = [{foo: 'bar'}],
+
+        // We will assume that every entry in timeSeries has the same keys.
+            timeSeriesKeys = _.keys(_.first(timeSeries));
+        
+        res.render('index.ejs', {
+            user: user,
+            timeSeries: timeSeries,
+            timeSeriesKeys: timeSeriesKeys
+        });
     });
 });
 

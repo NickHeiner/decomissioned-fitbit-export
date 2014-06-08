@@ -9,11 +9,34 @@
     <div class="row">
         <div class="small-12 columns">
             <h1>Fitbit Data Export</h1>
+
+            <p>Here is all your data accessible via the <a href="https://wiki.fitbit.com/display/API/API-Get-Time-Series">Fitbit Time Series API</a>:</p>
+
+            <table>
+                <thead>
+                    <tr>
+                        <% timeSeriesKeys.forEach(function(key) { %>
+                            <td><%= key %></td>
+                        <% }) %>
+                    </tr>
+                </thead>
+                <tbody>
+                <% timeSeries.forEach(function(timeSeriesRow) { %>
+                <tr>
+                    <% timeSeriesKeys.forEach(function(key) { %>
+                    <td><%= timeSeriesRow[key] %></td>
+                    <% }) %>
+                </tr>
+                <% }) %>
+                </tbody>
+            </table>
+
             <% if (!user) { %>
-            <p>Please <a href="/auth/fitbit">sign in</a> with your fitbit account.</p>
+                <p>Please <a href="/auth/fitbit">sign in</a> with your fitbit account.</p>
             <% } else { %>
-            <p>You are logged in as <%= user.displayName %>.</p>
-            <% }%>
+                <p>You are logged in as <%= user.displayName %>.</p>
+
+            <% } %>
         </div>
     </div>
 </body>
