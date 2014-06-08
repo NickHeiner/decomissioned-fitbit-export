@@ -30,6 +30,8 @@ function getTimeSeries(app, user, baseDate, period, resourceCategory, resourceSu
             })
         });
 
+    console.log('Requesting data url', requestUrl);
+
     // I wanted to use q.ninvoke here but it didn't work for whatever reason.
     oauth.get(
         requestUrl,
