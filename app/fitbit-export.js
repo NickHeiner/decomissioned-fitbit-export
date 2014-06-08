@@ -9,7 +9,7 @@ var express = require('express'),
     traverse = require('traverse'),
     passport = require('passport'),
     getConfig = require('./get-config'),
-    exportCsv = require('export-csv'),
+    exportCsv = require('./export-csv'),
     auth = require('./auth'),
     _ = require('lodash'),
     server;
