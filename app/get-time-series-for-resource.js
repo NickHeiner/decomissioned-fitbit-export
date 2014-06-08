@@ -2,6 +2,7 @@
 
 var q = require('q'),
     getConfig = require('./get-config'),
+    transformFitbitResponse = require('./transform-fitbit-response'),
     url = require('url'),
     _ = require('lodash'),
     OAuth = require('oauth');
@@ -50,7 +51,7 @@ function getTimeSeries(app, user, baseDate, period, resourceCategory, resourceSu
             jsonData = JSON.parse(data);
             dataPoints = jsonData[responseKey];
 
-            deferred.resolve(dataPoints);
+            deferred.resolve(transformFitbitResponse(dataPoints));
         }
     );
 
