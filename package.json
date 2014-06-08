@@ -27,13 +27,14 @@
     "grunt-cli": "^0.1.13"
   },
   "engines": {
-      "node": "^0.10.26"
+    "node": "^0.10.26"
   },
   "dependencies": {
     "ejs": "^1.0.0",
     "passport": "^0.2.0",
     "passport-fitbit": "^0.1.2",
     "connect": "^2.19.4",
-    "lodash": "^2.4.1"
+    "lodash": "^2.4.1",
+    "express": "^4.4.1"
   }
 }
