@@ -31,7 +31,7 @@ function getTimeSeries(app, user) {
 
         console.log('timeSeriesPerResource', timeSeriesPerResource, 'combined', combineFitbitResponses(timeSeriesPerResource));
 
-        return combineFitbitResponses(timeSeriesPerResource);
+        return combineFitbitResponses(_.flatten(timeSeriesPerResource));
     });
 }
 
