@@ -12,6 +12,7 @@ var express = require('express'),
 app.use(morgan());
 
 app.get('/', function(req, res){
+    console.log('req.session', req.session);
     res.render('index.ejs', {
         loggedIn: req.session && req.session.passport && req.session.passport.user.id
     });
