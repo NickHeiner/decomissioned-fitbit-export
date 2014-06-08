@@ -46,6 +46,7 @@ function getTimeSeries(app, user, rawOpts) {
             baseDate: '2014-06-08',
             timePeriod: '7d'
         }, rawOpts),
+        
         resourcePromises = _(resources)
             .map(function(subCategories, category) {
                 return _.map(subCategories, function(subCategory) {
@@ -53,13 +54,9 @@ function getTimeSeries(app, user, rawOpts) {
                 });
             })
             .flatten()
-            .first(opts.limitKeys)
             .valueOf();
 
-    console.log('promises', resourcePromises);
-
     return q.all(resourcePromises).then(function(timeSeriesPerResource) {
-        console.log('tspr', timeSeriesPerResource);
         return combineFitbitResponses(_.flatten(timeSeriesPerResource));
     });
 }

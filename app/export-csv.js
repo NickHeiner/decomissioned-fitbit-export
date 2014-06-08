@@ -14,9 +14,6 @@ function exportCsv(app, req, res) {
     getTimeSeries(app, req.session.passport.user).then(function(timeSeries) {
         // assume that all entries have the same keys
         var keys = _.keys(_.first(timeSeries));
-
-        console.log('timeSeries', timeSeries);
-
         return qJson2csv({data: timeSeries, fields: keys});
     }).then(function(csv) {
         res.send(csv);
