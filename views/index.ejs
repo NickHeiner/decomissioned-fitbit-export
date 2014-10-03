@@ -2,28 +2,74 @@
 <html>
 <head lang="en">
     <meta charset="UTF-8">
+    <meta name="description" content="Free, open source app to export your fitbit data to a csv file.">
     <title>Fitbit Data Export</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/foundation/5.2.3/css/foundation.css" />
 </head>
 <body>
+<a href="https://github.com/NickHeiner/fitbit-export"><img style="position: absolute; top: 0; right: 0; border: 0;" src="https://camo.githubusercontent.com/365986a132ccd6a44c23a9169022c0b5c890c387/68747470733a2f2f73332e616d617a6f6e6177732e636f6d2f6769746875622f726962626f6e732f666f726b6d655f72696768745f7265645f6161303030302e706e67" alt="Fork me on GitHub" data-canonical-src="https://s3.amazonaws.com/github/ribbons/forkme_right_red_aa0000.png"></a>
     <div class="row">
         <div class="small-12 columns">
             <h1>Fitbit Data Export</h1>
             <% if (!user) { %>
-                <p>Please <a href="/auth/fitbit">sign in</a> with your fitbit account.</p>
+                <p><strong>To begin, <a href="/auth/fitbit">authorize</a> this app to read your fitbit data.</strong></p>
+                <h3>What is this?</h3>
+                <p>This app will grab a bunch of your data from fitbit, format it as a <a href="http://en.wikipedia.org/wiki/Comma-separated_values">csv</a>, and present it to you to download. At no point is any data persisted in this app; it just passes straight through. You can verify this for yourself because the entire app is <a href="https://github.com/NickHeiner/fitbit-export">open source</a>.</p>
+                <p>The format of the data is a csv where each row corresponds to a single day. Each row contains the following fields:</p>
+                <ul>
+                    <li>Date</li>
+                    <li>Food log: calories in</li>
+                    <li>Food log: water</li>
+                    <li>Activities: calories</li>
+                    <li>Activities: calories BMR</li>
+                    <li>Activities: steps</li>
+                    <li>Activities: distance</li>
+                    <li>Activities: floors</li>
+                    <li>Activities: elevation</li>
+                    <li>Activities: minutes sedentary</li>
+                    <li>Activities: minutes lightly active</li>
+                    <li>Activities: minutes fairly active</li>
+                    <li>Activities: minutes very active</li>
+                    <li>Activities: activity calories</li>
+                    <li>Sleep: start time</li>
+                    <li>Sleep: time in bed</li>
+                    <li>Sleep: minutes asleep</li>
+                    <li>Sleep: awakenings amount</li>
+                    <li>Sleep: minutes awake</li>
+                    <li>Sleep: minutes to fall asleep</li>
+                    <li>Sleep: minutes after wakeup</li>
+                    <li>Sleep: efficiency</li>
+                    <li>Body: weight</li>
+                    <li>Body: bmi</li>
+                    <li>Body: fat</li>
+                </ul>
+                <p>If you don't have data for some of those fields (eg you don't keep a food log), they will just be blank.</p>
+                <p>For more detail, see the <a href="https://wiki.fitbit.com/display/API/Fitbit+Resource+Access+API">Fitbit API documentation.</a></p>
+                <p><strong><a href="/auth/fitbit">Ready to get started?</a></strong></p>
             <% } else { %>
                 <p><img src="<%= user._json.user.avatar150 %>"/> <%= user.displayName %></p>
                 <p><a href="/export.csv">Download all available data as a csv</a>.</p>
                 <ul>
-                    <li>(It would probably be easiest to <kbd>right click</kbd> that link and <kbd>save as</kbd>,
-                        then open in Excel or the csv manipulation program of your choice.)</li>
+                    <li>(It would probably be easiest to <kbd>right click</kbd> that link and <kbd>save as</kbd>.)</li>
                     <li>If you have a lot of data, this could take a little while. If you are opening the page
                         directly, the page may be slow to load. If you are downloading it as a file, the browser
                         may delay before showing you the "save file as" dialog. This delay does not indicate a problem;
                         it just takes Fitbit time to manifest all your data.
                     </li>
+                    <li>This is a weekend project that I threw together in a few hours, so it's pretty bare-bones. (That said, if you're interested in contributing, I definitely accept pull requests on github.)
+                    I'm more interested in making this a great tool for exporting data than reinventing data processing functionality that already exists in other programs. There are all sorts of great tools for processing .csv files, including:
+                    <ul>
+                        <li><a href="https://office.live.com/start/excel.aspx">Excel</a></li>
+                        <li><a href="https://docs.google.com/spreadsheets">Google Spreadsheets</a></li>
+                        <li><a href="http://nodejs.org/">nodejs</a></li>
+                        <li><a href="https://www.python.org/">python</a></li>
+                        <li><a href="http://www.r-project.org/">r</a></li>
+                        <li><a href="https://www.ruby-lang.org/en/">ruby</a></li>
+                    </ul>
+                    </li>
                     <li>All units are in metric as listed on the
-                        <a href="https://wiki.fitbit.com/display/API/API+Unit+System">Fitbit api page</a>.</li>
+                        <a href="https://wiki.fitbit.com/display/API/API+Unit+System">Fitbit api page</a>. If you would rather use another system, you can use one of the tools mentioned above to transform your data.</li>
+                    <li>Amusingly, this seems to give you data back to 2011, even if (like me) you only got your fitbit in 2013. I don't know why this is. When the app asks fitbit's API for the entire time range of data, that's the response.</li>
                 </ul>
             <% } %>
             <p>This is an app by <a href="https://www.twitter.com/nickheiner">Nick Heiner</a>.
@@ -31,5 +77,15 @@
                 - PRs accepted!</p>
         </div>
     </div>
+    <script>
+      (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+      (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+      m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+      })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+      ga('create', 'UA-55391906-1', 'auto');
+      ga('send', 'pageview');
+
+    </script>
 </body>
 </html>
