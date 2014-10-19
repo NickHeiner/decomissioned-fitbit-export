@@ -2,7 +2,7 @@ fitbit-export
 [![Build Status](https://travis-ci.org/NickHeiner/fitbit-export.svg?branch=master)](https://travis-ci.org/NickHeiner/fitbit-export)
 =============
 
-A webapp to make exporting fitbit data easier. See the [app itself](http://fitbit-export.azurewebsites.net) for more detail.
+A webapp to make exporting fitbit data easier. See the the app itself at http://fitbit-export.azurewebsites.net for more detail.
 
 ### Development
 You must have the following env vars defined:
