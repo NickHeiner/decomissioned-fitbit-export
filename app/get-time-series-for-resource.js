@@ -21,7 +21,7 @@ function getTimeSeries(app, user, baseDate, period, resourceCategory, resourceSu
         ),
         deferred = q.defer(),
         requestUrl = url.format({
-            protocol: 'http',
+            protocol: 'https',
             hostname: 'api.fitbit.com',
             pathname: _.template('/1/user/-/<%= resourceCategory %>/<%= resourceSubcategory %>/date/<%= baseDate %>/<%= period %>.json', {
                 resourceCategory: resourceCategory,

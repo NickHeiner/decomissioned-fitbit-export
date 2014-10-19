@@ -9,9 +9,9 @@ var configMap = Object.freeze({
         port: process.env.PORT || 3001
     },
     development: {
-        fitbitClientKey: process.env.FITBIT_DATA_EXPORT_CLIENT_KEY,
-        fitbitClientSecret: process.env.FITBIT_DATA_EXPORT_CLIENT_SECRET,
-        host: 'localhost',
+        fitbitClientKey: process.env.FITBIT_DATA_EXPORT_DEV_CLIENT_KEY,
+        fitbitClientSecret: process.env.FITBIT_DATA_EXPORT_DEV_CLIENT_SECRET,
+        host: 'fitbit-export.hexxie.com',
         sessionSecret: process.env.FITBIT_DATA_EXPORT_SESSION_SECRET,
         port: process.env.PORT || 3001
     }
