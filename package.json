@@ -32,16 +32,18 @@
     "node": "0.10.26"
   },
   "dependencies": {
+    "connect": "^2.19.4",
     "ejs": "^1.0.0",
+    "express": "^4.4.1",
+    "i": "^0.3.2",
+    "json2csv": "^2.2.1",
+    "lodash": "^2.4.1",
+    "morgan": "^1.1.1",
+    "newrelic": "^1.12.1",
+    "oauth": "^0.9.12",
     "passport": "^0.2.0",
     "passport-fitbit": "^0.1.2",
-    "connect": "^2.19.4",
-    "lodash": "^2.4.1",
-    "express": "^4.4.1",
-    "morgan": "^1.1.1",
-    "traverse": "^0.6.6",
     "q": "^1.0.1",
-    "oauth": "^0.9.12",
-    "json2csv": "^2.2.1"
+    "traverse": "^0.6.6"
   }
 }
