@@ -2,7 +2,6 @@
 
 var _ = require('lodash'),
     q = require('q'),
-    traverse = require('traverse'),
     getTimeSeriesForResource = require('./get-time-series-for-resource'),
     combineFitbitResponses = require('./combine-fitbit-responses'),
     resources = Object.freeze({

@@ -11,13 +11,14 @@ var express = require('express'),
     passport = require('passport'),
     getConfig = require('./get-config'),
     _ = require('lodash'),
-    exportCsv = _.curry(require('./export-csv'))(app),
+    exportCsv = require('./export-csv'),
     auth = require('./auth'),
     server;
 
 app.use(morgan());
 
 app.use(connect.cookieParser());
+console.log('session secret', getConfig(app).sessionSecret);
 app.use(connect.session({secret: getConfig(app).sessionSecret}));
 app.use(passport.initialize());
 app.use(passport.session());
@@ -42,5 +43,6 @@ app.set('view engine', require('ejs'));
 auth(app);
 
 server = app.listen(getConfig(app).port, function() {
+    console.log('App env', app.get('env'));
     console.log(require('../package').name + ' express app listening at', server.address());
 });

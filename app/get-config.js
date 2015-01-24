@@ -12,7 +12,7 @@ var configMap = Object.freeze({
         fitbitClientKey: process.env.FITBIT_DATA_EXPORT_DEV_CLIENT_KEY,
         fitbitClientSecret: process.env.FITBIT_DATA_EXPORT_DEV_CLIENT_SECRET,
         host: 'fitbit-export.hexxie.com',
-        sessionSecret: process.env.FITBIT_DATA_EXPORT_SESSION_SECRET,
+        sessionSecret: process.env.FITBIT_DATA_EXPORT_DEV_SESSION_SECRET,
         port: process.env.PORT || 3001
     }
 });
