@@ -39,6 +39,8 @@ app.get('/diagnostics.json', function(req, res) {
     });
 });
 
+app.use('/static', express.static('static'));
+
 app.get('/export.csv', exportCsv);
 
 // https://github.com/visionmedia/express/pull/2165

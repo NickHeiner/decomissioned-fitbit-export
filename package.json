@@ -5,7 +5,9 @@
   "main": "app/fitbit-export",
   "scripts": {
     "test": "grunt test",
-    "start": "node ./app/fitbit-export.js"
+    "build-styles": "node-sass styles/index.scss static/index.css",
+    "build-styles-watch": "node-sass --watch styles/index.scss static/index.css",
+    "start": "node run build-styles && node ./app/fitbit-export.js"
   },
   "repository": {
     "type": "git",
@@ -22,6 +24,7 @@
   "homepage": "https://github.com/NickHeiner/fitbit-export",
   "devDependencies": {
     "chai": "^1.9.1",
+    "foundation-apps": "^1.2.0",
     "grunt": "^0.4.5",
     "grunt-cli": "^0.1.13",
     "grunt-contrib-jshint": "^0.10.0",
