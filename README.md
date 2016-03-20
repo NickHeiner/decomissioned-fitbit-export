@@ -15,3 +15,4 @@ You must have the following env vars defined:
 
 #### Any random string
 * `FITBIT_DATA_EXPORT_SESSION_SECRET`
+* `FITBIT_DATA_EXPORT_DEV_SESSION_SECRET`
