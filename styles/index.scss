@@ -1,0 +1,10 @@
+@import "./node_modules/foundation-apps/scss/foundation";
+
+.full-width-grid-content {
+    @include grid-content;
+
+    // I can't figure out how to do this with SCSS vars.
+    // I just want to affect this one class; I don't
+    // want to set the $block-padding var for all classes.
+    padding: 0 0;
+}
