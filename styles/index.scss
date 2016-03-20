@@ -1,10 +1,32 @@
 @import "./node_modules/foundation-apps/scss/foundation";
 
 .full-width-grid-content {
-    @include grid-content;
+    @include grid-content(shrink);
 
     // I can't figure out how to do this with SCSS vars.
     // I just want to affect this one class; I don't
     // want to set the $block-padding var for all classes.
     padding: 0 0;
+}
+
+body {
+    @include breakpoint(small) {
+        font-size: 3rem;
+    }
+
+    @include breakpoint(large) {
+        font-size: 1rem;
+    }
+}
+
+.header-image {
+    // I have no idea why this is necessary,
+    // but otherwise there's a 1px split between
+    // the image and the content above it.
+    margin-top: -1px;
+
+    background: transparent url('/static/images/pinedale.jpg') no-repeat;
+    background-size: cover;
+    background-position: 0 75%;
+    height: 500px;
 }

@@ -5471,5 +5471,19 @@ blockquote p {
   overflow-y: auto;
   -webkit-overflow-scrolling: touch;
   -ms-overflow-style: -ms-autohiding-scrollbar;
-  flex: 1 1 auto;
+  flex: 0 0 auto;
+  overflow: visible;
   padding: 0 0; }
+
+body {
+  font-size: 3rem; }
+  @media only screen and (min-width: 75em) {
+    body {
+      font-size: 1rem; } }
+
+.header-image {
+  margin-top: -1px;
+  background: transparent url("/static/images/pinedale.jpg") no-repeat;
+  background-size: cover;
+  background-position: 0 75%;
+  height: 500px; }
