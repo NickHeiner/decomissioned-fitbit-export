@@ -33,6 +33,12 @@ app.get('/', function(req, res){
     });
 });
 
+app.get('/diagnostics.json', function(req, res) {
+    res.json({
+        nodeJsVersion: process.version
+    });
+});
+
 app.get('/export.csv', exportCsv);
 
 // https://github.com/visionmedia/express/pull/2165
