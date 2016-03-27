@@ -5481,10 +5481,12 @@ blockquote p {
 body {
   font-size: 3rem; }
   body h1 {
-    font-size: 8.25 rem; }
+    font-size: 5.5rem; }
   @media only screen and (min-width: 75em) {
     body {
-      font-size: 1rem; } }
+      font-size: 1rem; }
+      body h1 {
+        font-size: 2.75rem; } }
 
 .header-image {
   margin-top: -1px;
@@ -5494,3 +5496,10 @@ body {
   height: 500px; }
   .header-image h1 {
     color: #fff; }
+  .header-image [size=medium] {
+    display: none; }
+  @media only screen and (min-width: 75em) {
+    .header-image [size=large] {
+      display: none; }
+    .header-image [size=medium] {
+      display: inherit; } }

@@ -86,6 +86,9 @@ app.set('view engine', require('ejs'));
 
 auth(app);
 
-server = app.listen(getConfig(app).port, function() {
+// I don't know why but the 0.0.0.0 was necessary for
+// my phone to be able to connect, even though
+// it wasn't always.
+server = app.listen(getConfig(app).port, '0.0.0.0', function() {
     console.log(require('../package').name + ' express app listening at', server.address());
 });

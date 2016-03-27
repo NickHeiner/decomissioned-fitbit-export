@@ -17,17 +17,30 @@ body {
     // Foundation offers a bunch of vars to control font-size,
     // but I don't think that setting them in a breakpoing mixin
     // does anything.
+
+    // These media queries make it look good on desktop on full screen,
+    // and on my phone. However, shrinking the desktop view makes it look like ass.
+    // I'm not sure what to do about this.
     @include breakpoint(small) {
-        font-size: 3rem;
+        font-size: $paragraph-font-size * 3;
 
         h1 {
-            font-size: (2.75 * 3)rem;
+            font-size: $h1-font-size * 2;
         }
     }
 
     @include breakpoint(large) {
-        font-size: 1rem;
+        font-size: $paragraph-font-size;
+
+        h1 {
+            font-size: $h1-font-size;
+        }
     }
+
+    // @include breakpoint(large) {
+    //     color: red;
+    //     font-size: 1rem;
+    // }
 }
 
 .header-image {
@@ -43,5 +56,21 @@ body {
 
     h1 {
         color: #fff;
+    }
+
+    // Does this way of resizing the icon suck?
+    @include breakpoint(small) {
+        [size=medium] {
+            display: none;
+        }
+    }
+
+    @include breakpoint(large) {
+        [size=large] {
+            display: none;
+        }
+        [size=medium] {
+            display: inherit;
+        }
     }
 }
