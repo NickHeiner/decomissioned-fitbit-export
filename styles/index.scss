@@ -27,6 +27,10 @@ body {
         h1 {
             font-size: $h1-font-size * 2;
         }
+
+        h2 {
+            font-size: $h2-font-size * 2;
+        }
     }
 
     @include breakpoint(large) {
@@ -34,6 +38,10 @@ body {
 
         h1 {
             font-size: $h1-font-size;
+        }
+
+        h2 {
+            font-size: $h2-font-size;
         }
     }
 
@@ -93,5 +101,11 @@ body {
         [size=medium] {
             display: inherit;
         }
+    }
+}
+
+.explanation {
+    h2 {
+        text-align: center;
     }
 }

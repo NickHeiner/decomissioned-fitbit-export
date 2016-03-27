@@ -5482,11 +5482,15 @@ body {
   font-size: 3rem; }
   body h1 {
     font-size: 5.5rem; }
+  body h2 {
+    font-size: 4.625rem; }
   @media only screen and (min-width: 75em) {
     body {
       font-size: 1rem; }
       body h1 {
-        font-size: 2.75rem; } }
+        font-size: 2.75rem; }
+      body h2 {
+        font-size: 2.3125rem; } }
 
 .hero-image {
   margin-top: -1px;
@@ -5514,3 +5518,6 @@ body {
       display: none; }
     .hero-image [size=medium] {
       display: inherit; } }
+
+.explanation h2 {
+  text-align: center; }
