@@ -7,7 +7,7 @@
     "test": "grunt test",
     "build-styles": "node-sass styles/index.scss static/index.css",
     "build-styles-watch": "node-sass --watch styles/index.scss static/index.css",
-    "start": "node run build-styles && node ./app/fitbit-export.js"
+    "start": "npm run build-styles && node ./app/fitbit-export.js"
   },
   "repository": {
     "type": "git",

@@ -5477,6 +5477,8 @@ blockquote p {
 
 body {
   font-size: 3rem; }
+  body h1 {
+    font-size: 8.25 rem; }
   @media only screen and (min-width: 75em) {
     body {
       font-size: 1rem; } }
@@ -5487,3 +5489,5 @@ body {
   background-size: cover;
   background-position: 0 75%;
   height: 500px; }
+  .header-image h1 {
+    color: #fff; }

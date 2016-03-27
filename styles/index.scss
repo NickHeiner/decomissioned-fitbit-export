@@ -10,8 +10,15 @@
 }
 
 body {
+    // Foundation offers a bunch of vars to control font-size,
+    // but I don't think that setting them in a breakpoing mixin
+    // does anything.
     @include breakpoint(small) {
         font-size: 3rem;
+
+        h1 {
+            font-size: (2.75 * 3)rem;
+        }
     }
 
     @include breakpoint(large) {
@@ -29,4 +36,8 @@ body {
     background-size: cover;
     background-position: 0 75%;
     height: 500px;
+
+    h1 {
+        color: #fff;
+    }
 }
