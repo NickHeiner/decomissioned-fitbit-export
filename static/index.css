@@ -5490,9 +5490,9 @@ body {
 
 .hero-image {
   margin-top: -1px;
-  background: transparent url("/static/images/pinedale.jpg") no-repeat;
+  background: transparent url("/static/images/marrowstone.jpg") no-repeat;
   background-size: cover;
-  background-position: 0 75%;
+  background-position: 0 54%;
   overflow: hidden; }
   .hero-image .hero-inner {
     height: 550px; }
