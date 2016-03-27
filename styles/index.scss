@@ -43,7 +43,7 @@ body {
     // }
 }
 
-.header-image {
+.hero-image {
     // I have no idea why this is necessary,
     // but otherwise there's a 1px split between
     // the image and the content above it.
@@ -52,7 +52,11 @@ body {
     background: transparent url('/static/images/pinedale.jpg') no-repeat;
     background-size: cover;
     background-position: 0 75%;
-    height: 500px;
+    overflow: hidden;
+
+    .hero-inner {
+        height: 250px;
+    }
 
     h1 {
         color: #fff;
