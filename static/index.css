@@ -5494,6 +5494,9 @@ body {
   background-size: cover;
   background-position: 0 54%;
   overflow: hidden; }
+  .hero-image a > .iconic * {
+    fill: white;
+    stroke: white; }
   .hero-image .hero-inner {
     height: 550px; }
     @media only screen and (min-width: 75em) {

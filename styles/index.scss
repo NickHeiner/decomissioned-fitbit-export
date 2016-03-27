@@ -54,6 +54,11 @@ body {
     background-position: 0 54%;
     overflow: hidden;
 
+    a > .iconic * {
+        fill: white;
+        stroke: white;
+    }
+
     .hero-inner {
         @include breakpoint(small) {
             height: 550px;
