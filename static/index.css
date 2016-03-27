@@ -5495,9 +5495,15 @@ body {
   background-position: 0 75%;
   overflow: hidden; }
   .hero-image .hero-inner {
-    height: 250px; }
+    height: 550px; }
+    @media only screen and (min-width: 75em) {
+      .hero-image .hero-inner {
+        height: 250px; } }
+  .hero-image .hero-content {
+    margin-top: 8%; }
   .hero-image h1 {
-    color: #fff; }
+    color: #fff;
+    text-align: center; }
   .hero-image [size=medium] {
     display: none; }
   @media only screen and (min-width: 75em) {

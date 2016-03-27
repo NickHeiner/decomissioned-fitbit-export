@@ -55,11 +55,23 @@ body {
     overflow: hidden;
 
     .hero-inner {
-        height: 250px;
+        @include breakpoint(small) {
+            height: 550px;
+        }
+
+        @include breakpoint(large) {
+            height: 250px;
+        }
+    }
+
+    .hero-content {
+        // HEY GUYS I HAVE NO IDEA HOW TO DO I VERTICAL CENTERING
+        margin-top: 8%;
     }
 
     h1 {
         color: #fff;
+        text-align: center;
     }
 
     // Does this way of resizing the icon suck?
