@@ -27,10 +27,7 @@
     window.appInsights=appInsights;
     appInsights.trackPageView();
 </script>
-<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.5.3/angular.min.js"></script>
-<script type="text/javascript" src="/static/foundation.js"></script>
 <script type="text/javascript" src="/static/autotrack.js"></script>
-<script type="text/javascript" src="/static/foundation-templates.js"></script>
 <script type="text/javascript" src="/static/index.js"></script>
 <body>
     <div class="grid-block vertical">
@@ -61,18 +58,19 @@
                 <div class="grid-block hero-inner">
                     <div class="grid-container">
                         <div class="grid-content hero-content">
-                            <h1>Export your historical Fitbit data for free
-                            </h1>
+                            <div class="grid-block">
+                                <h1>Export your historical Fitbit data for free</h1>
+                            </div>
                             <div class="grid-block align-center">
-                                <div class="grid-block small-1">
+                                <div class="grid-block small-3">
                                     <div class="grid-content">
                                         <a href="/auth/fitbit"
                                             data-event-category="auth"
                                             data-event-action="log-in"
                                             data-event-label="method"
-                                            data-event-value="hero">
-                                            <img zf-iconic="" icon="chevron" size="medium" class="iconic-color-secondary">
-                                            <img zf-iconic="" icon="chevron" size="large" class="iconic-color-secondary">
+                                            data-event-value="hero"
+                                            class="login-button">
+                                            Get Started
                                         </a>
                                     </div>
                                 </div>

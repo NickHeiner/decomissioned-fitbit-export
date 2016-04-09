@@ -40,28 +40,6 @@ app.get('/diagnostics.json', function(req, res) {
     });
 });
 
-app.get('/static/foundation.js', function(req, res) {
-    res.sendFile(
-        require.resolve('foundation-apps/dist/js/foundation-apps.min.js'),
-
-        // This is a shit way to do caching, but since the site is fairly low
-        // traffic, hopefully this will allow repeat page views to be faster,
-        // without causing a ton of issues when I do a deploy.
-        {maxAge: moment.duration(10, 'minutes').asMilliseconds()}
-    );
-});
-
-app.get('/static/foundation-templates.js', function(req, res) {
-    res.sendFile(
-        require.resolve('foundation-apps/dist/js/foundation-apps-templates.min.js'),
-
-        // This is a shit way to do caching, but since the site is fairly low
-        // traffic, hopefully this will allow repeat page views to be faster,
-        // without causing a ton of issues when I do a deploy.
-        {maxAge: moment.duration(10, 'minutes').asMilliseconds()}
-    );
-});
-
 app.get('/static/autotrack.js', function(req, res) {
     res.sendFile(
         require.resolve('autotrack/autotrack.js'),

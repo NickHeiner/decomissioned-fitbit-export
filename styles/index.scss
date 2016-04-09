@@ -119,6 +119,14 @@ body {
     .export-button-block {
         margin-top: 10px;
     }
+
+    .login-button {
+        @extend .large;
+        @extend .button;
+
+        // This is not semantic but it gets the color I want.
+        @extend .alert;
+    }
 }
 
 .explanation {

@@ -495,7 +495,7 @@ a, [ui-sref], [zf-open], [zf-close], [zf-toggle] {
 .action-sheet-container {
   position: relative;
   display: inline-block; }
-  .action-sheet-container .button {
+  .action-sheet-container .button, .action-sheet-container .main .login-button, .main .action-sheet-container .login-button {
     margin-left: 0;
     margin-right: 0; }
 
@@ -533,7 +533,7 @@ a, [ui-sref], [zf-open], [zf-close], [zf-toggle] {
       .action-sheet ul a:hover {
         color: #000;
         background: #f2f2f2; }
-    .action-sheet ul .alert > a {
+    .action-sheet ul .alert > a, .action-sheet ul .main .login-button > a, .main .action-sheet ul .login-button > a {
       color: #F04124; }
     .action-sheet ul .disabled > a {
       pointer-events: none;
@@ -665,7 +665,7 @@ a, [ui-sref], [zf-open], [zf-close], [zf-toggle] {
         .action-sheet.primary ul a:hover {
           color: #fff;
           background: #00609e; }
-      .action-sheet.primary ul .alert > a {
+      .action-sheet.primary ul .alert > a, .action-sheet.primary ul .main .login-button > a, .main .action-sheet.primary ul .login-button > a {
         color: #F04124; }
       .action-sheet.primary ul .disabled > a {
         pointer-events: none;
@@ -698,7 +698,7 @@ a, [ui-sref], [zf-open], [zf-close], [zf-toggle] {
         .action-sheet.dark ul a:hover {
           color: #fff;
           background: #2e2e2e; }
-      .action-sheet.dark ul .alert > a {
+      .action-sheet.dark ul .alert > a, .action-sheet.dark ul .main .login-button > a, .main .action-sheet.dark ul .login-button > a {
         color: #F04124; }
       .action-sheet.dark ul .disabled > a {
         pointer-events: none;
@@ -903,7 +903,7 @@ a, [ui-sref], [zf-open], [zf-close], [zf-toggle] {
         margin-left: 0.8rem;
         float: none; }
 
-.button, .button-group > li > a, .button-group > li > label, .button-group > li > button {
+.button, .main .login-button, .button-group > li > a, .button-group > li > label, .button-group > li > button {
   display: inline-block;
   border: 0;
   text-align: center;
@@ -918,270 +918,270 @@ a, [ui-sref], [zf-open], [zf-close], [zf-toggle] {
   font-size: 0.9rem;
   border-radius: 0; }
 
-.button {
+.button, .main .login-button {
   font-size: 0.9rem;
   display: inline-block;
   width: auto;
   margin: 0 1rem 1rem 0;
   background: #00558b;
   color: #fff; }
-  .button .iconic {
+  .button .iconic, .main .login-button .iconic {
     width: 1em;
     height: 1em;
     vertical-align: middle;
     margin-right: 0.25em;
     margin-top: -2px; }
-  .button:hover, .button:focus {
+  .button:hover, .main .login-button:hover, .button:focus, .main .login-button:focus {
     background: #004876;
     color: #fff; }
-  .button .iconic * {
+  .button .iconic *, .main .login-button .iconic * {
     fill: #fff;
     stroke: #fff; }
-    .button .iconic *.iconic-property-accent {
+    .button .iconic *.iconic-property-accent, .main .login-button .iconic *.iconic-property-accent {
       fill: #fff;
       stroke: #fff; }
-  .button.tiny {
+  .button.tiny, .main .tiny.login-button {
     font-size: 0.63rem; }
-    .button.tiny .iconic {
+    .button.tiny .iconic, .main .tiny.login-button .iconic {
       width: 1em;
       height: 1em;
       vertical-align: middle;
       margin-right: 0.25em;
       margin-top: -2px; }
-  .button.small {
+  .button.small, .main .small.login-button {
     font-size: 0.72rem; }
-    .button.small .iconic {
+    .button.small .iconic, .main .small.login-button .iconic {
       width: 1em;
       height: 1em;
       vertical-align: middle;
       margin-right: 0.25em;
       margin-top: -2px; }
-  .button.large {
+  .button.large, .main .login-button {
     font-size: 1.17rem; }
-    .button.large .iconic {
+    .button.large .iconic, .main .login-button .iconic {
       width: 1em;
       height: 1em;
       vertical-align: middle;
       margin-right: 0.25em;
       margin-top: -2px; }
-  .button.expand {
+  .button.expand, .main .expand.login-button {
     display: block;
     width: 100%;
     margin-left: 0;
     margin-right: 0; }
-  .button.secondary {
+  .button.secondary, .main .secondary.login-button {
     background: #f1f1f1;
     color: #000; }
-    .button.secondary:hover, .button.secondary:focus {
+    .button.secondary:hover, .main .secondary.login-button:hover, .button.secondary:focus, .main .secondary.login-button:focus {
       background: #cdcdcd;
       color: #000; }
-    .button.secondary .iconic * {
+    .button.secondary .iconic *, .main .secondary.login-button .iconic * {
       fill: #000;
       stroke: #000; }
-      .button.secondary .iconic *.iconic-property-accent {
+      .button.secondary .iconic *.iconic-property-accent, .main .secondary.login-button .iconic *.iconic-property-accent {
         fill: #000;
         stroke: #000; }
-  .button.success {
+  .button.success, .main .success.login-button {
     background: #43AC6A;
     color: #fff; }
-    .button.success:hover, .button.success:focus {
+    .button.success:hover, .main .success.login-button:hover, .button.success:focus, .main .success.login-button:focus {
       background: #39925a;
       color: #fff; }
-    .button.success .iconic * {
+    .button.success .iconic *, .main .success.login-button .iconic * {
       fill: #fff;
       stroke: #fff; }
-      .button.success .iconic *.iconic-property-accent {
+      .button.success .iconic *.iconic-property-accent, .main .success.login-button .iconic *.iconic-property-accent {
         fill: #fff;
         stroke: #fff; }
-  .button.warning {
+  .button.warning, .main .warning.login-button {
     background: #F08A24;
     color: #fff; }
-    .button.warning:hover, .button.warning:focus {
+    .button.warning:hover, .main .warning.login-button:hover, .button.warning:focus, .main .warning.login-button:focus {
       background: #dc750f;
       color: #fff; }
-    .button.warning .iconic * {
+    .button.warning .iconic *, .main .warning.login-button .iconic * {
       fill: #fff;
       stroke: #fff; }
-      .button.warning .iconic *.iconic-property-accent {
+      .button.warning .iconic *.iconic-property-accent, .main .warning.login-button .iconic *.iconic-property-accent {
         fill: #fff;
         stroke: #fff; }
-  .button.alert {
+  .button.alert, .main .login-button {
     background: #F04124;
     color: #fff; }
-    .button.alert:hover, .button.alert:focus {
+    .button.alert:hover, .main .login-button:hover, .button.alert:focus, .main .login-button:focus {
       background: #dc2c0f;
       color: #fff; }
-    .button.alert .iconic * {
+    .button.alert .iconic *, .main .login-button .iconic * {
       fill: #fff;
       stroke: #fff; }
-      .button.alert .iconic *.iconic-property-accent {
+      .button.alert .iconic *.iconic-property-accent, .main .login-button .iconic *.iconic-property-accent {
         fill: #fff;
         stroke: #fff; }
-  .button.info {
+  .button.info, .main .info.login-button {
     background: #A0D3E8;
     color: #000; }
-    .button.info:hover, .button.info:focus {
+    .button.info:hover, .main .info.login-button:hover, .button.info:focus, .main .info.login-button:focus {
       background: #71bddd;
       color: #000; }
-    .button.info .iconic * {
+    .button.info .iconic *, .main .info.login-button .iconic * {
       fill: #000;
       stroke: #000; }
-      .button.info .iconic *.iconic-property-accent {
+      .button.info .iconic *.iconic-property-accent, .main .info.login-button .iconic *.iconic-property-accent {
         fill: #000;
         stroke: #000; }
-  .button.dark {
+  .button.dark, .main .dark.login-button {
     background: #232323;
     color: #fff; }
-    .button.dark:hover, .button.dark:focus {
+    .button.dark:hover, .main .dark.login-button:hover, .button.dark:focus, .main .dark.login-button:focus {
       background: #1e1e1e;
       color: #fff; }
-    .button.dark .iconic * {
+    .button.dark .iconic *, .main .dark.login-button .iconic * {
       fill: #fff;
       stroke: #fff; }
-      .button.dark .iconic *.iconic-property-accent {
+      .button.dark .iconic *.iconic-property-accent, .main .dark.login-button .iconic *.iconic-property-accent {
         fill: #fff;
         stroke: #fff; }
-  .button.hollow {
+  .button.hollow, .main .hollow.login-button {
     border: 1px solid #00558b;
     background: transparent;
     color: #00558b; }
-    .button.hollow:hover, .button.hollow:focus {
+    .button.hollow:hover, .main .hollow.login-button:hover, .button.hollow:focus, .main .hollow.login-button:focus {
       border-color: #008ee8;
       background: transparent;
       color: #008ee8; }
-    .button.hollow .iconic * {
+    .button.hollow .iconic *, .main .hollow.login-button .iconic * {
       fill: #00558b;
       stroke: #00558b; }
-      .button.hollow .iconic *.iconic-property-accent {
+      .button.hollow .iconic *.iconic-property-accent, .main .hollow.login-button .iconic *.iconic-property-accent {
         fill: #00558b;
         stroke: #00558b; }
-    .button.hollow:hover .iconic * {
+    .button.hollow:hover .iconic *, .main .hollow.login-button:hover .iconic * {
       fill: #008ee8;
       stroke: #008ee8; }
-      .button.hollow:hover .iconic *.iconic-property-accent {
+      .button.hollow:hover .iconic *.iconic-property-accent, .main .hollow.login-button:hover .iconic *.iconic-property-accent {
         fill: #008ee8;
         stroke: #008ee8; }
-    .button.hollow.secondary {
+    .button.hollow.secondary, .main .hollow.secondary.login-button {
       border: 1px solid #f1f1f1;
       background: transparent;
       color: #f1f1f1; }
-      .button.hollow.secondary:hover, .button.hollow.secondary:focus {
+      .button.hollow.secondary:hover, .main .hollow.secondary.login-button:hover, .button.hollow.secondary:focus, .main .hollow.secondary.login-button:focus {
         border-color: whitesmoke;
         background: transparent;
         color: whitesmoke; }
-      .button.hollow.secondary .iconic * {
+      .button.hollow.secondary .iconic *, .main .hollow.secondary.login-button .iconic * {
         fill: #f1f1f1;
         stroke: #f1f1f1; }
-        .button.hollow.secondary .iconic *.iconic-property-accent {
+        .button.hollow.secondary .iconic *.iconic-property-accent, .main .hollow.secondary.login-button .iconic *.iconic-property-accent {
           fill: #f1f1f1;
           stroke: #f1f1f1; }
-      .button.hollow.secondary:hover .iconic * {
+      .button.hollow.secondary:hover .iconic *, .main .hollow.secondary.login-button:hover .iconic * {
         fill: whitesmoke;
         stroke: whitesmoke; }
-        .button.hollow.secondary:hover .iconic *.iconic-property-accent {
+        .button.hollow.secondary:hover .iconic *.iconic-property-accent, .main .hollow.secondary.login-button:hover .iconic *.iconic-property-accent {
           fill: whitesmoke;
           stroke: whitesmoke; }
-    .button.hollow.success {
+    .button.hollow.success, .main .hollow.success.login-button {
       border: 1px solid #43AC6A;
       background: transparent;
       color: #43AC6A; }
-      .button.hollow.success:hover, .button.hollow.success:focus {
+      .button.hollow.success:hover, .main .hollow.success.login-button:hover, .button.hollow.success:focus, .main .hollow.success.login-button:focus {
         border-color: #6dc68e;
         background: transparent;
         color: #6dc68e; }
-      .button.hollow.success .iconic * {
+      .button.hollow.success .iconic *, .main .hollow.success.login-button .iconic * {
         fill: #43AC6A;
         stroke: #43AC6A; }
-        .button.hollow.success .iconic *.iconic-property-accent {
+        .button.hollow.success .iconic *.iconic-property-accent, .main .hollow.success.login-button .iconic *.iconic-property-accent {
           fill: #43AC6A;
           stroke: #43AC6A; }
-      .button.hollow.success:hover .iconic * {
+      .button.hollow.success:hover .iconic *, .main .hollow.success.login-button:hover .iconic * {
         fill: #6dc68e;
         stroke: #6dc68e; }
-        .button.hollow.success:hover .iconic *.iconic-property-accent {
+        .button.hollow.success:hover .iconic *.iconic-property-accent, .main .hollow.success.login-button:hover .iconic *.iconic-property-accent {
           fill: #6dc68e;
           stroke: #6dc68e; }
-    .button.hollow.warning {
+    .button.hollow.warning, .main .hollow.warning.login-button {
       border: 1px solid #F08A24;
       background: transparent;
       color: #F08A24; }
-      .button.hollow.warning:hover, .button.hollow.warning:focus {
+      .button.hollow.warning:hover, .main .hollow.warning.login-button:hover, .button.hollow.warning:focus, .main .hollow.warning.login-button:focus {
         border-color: #f4a75b;
         background: transparent;
         color: #f4a75b; }
-      .button.hollow.warning .iconic * {
+      .button.hollow.warning .iconic *, .main .hollow.warning.login-button .iconic * {
         fill: #F08A24;
         stroke: #F08A24; }
-        .button.hollow.warning .iconic *.iconic-property-accent {
+        .button.hollow.warning .iconic *.iconic-property-accent, .main .hollow.warning.login-button .iconic *.iconic-property-accent {
           fill: #F08A24;
           stroke: #F08A24; }
-      .button.hollow.warning:hover .iconic * {
+      .button.hollow.warning:hover .iconic *, .main .hollow.warning.login-button:hover .iconic * {
         fill: #f4a75b;
         stroke: #f4a75b; }
-        .button.hollow.warning:hover .iconic *.iconic-property-accent {
+        .button.hollow.warning:hover .iconic *.iconic-property-accent, .main .hollow.warning.login-button:hover .iconic *.iconic-property-accent {
           fill: #f4a75b;
           stroke: #f4a75b; }
-    .button.hollow.alert {
+    .button.hollow.alert, .main .hollow.login-button {
       border: 1px solid #F04124;
       background: transparent;
       color: #F04124; }
-      .button.hollow.alert:hover, .button.hollow.alert:focus {
+      .button.hollow.alert:hover, .main .hollow.login-button:hover, .button.hollow.alert:focus, .main .hollow.login-button:focus {
         border-color: #f4715b;
         background: transparent;
         color: #f4715b; }
-      .button.hollow.alert .iconic * {
+      .button.hollow.alert .iconic *, .main .hollow.login-button .iconic * {
         fill: #F04124;
         stroke: #F04124; }
-        .button.hollow.alert .iconic *.iconic-property-accent {
+        .button.hollow.alert .iconic *.iconic-property-accent, .main .hollow.login-button .iconic *.iconic-property-accent {
           fill: #F04124;
           stroke: #F04124; }
-      .button.hollow.alert:hover .iconic * {
+      .button.hollow.alert:hover .iconic *, .main .hollow.login-button:hover .iconic * {
         fill: #f4715b;
         stroke: #f4715b; }
-        .button.hollow.alert:hover .iconic *.iconic-property-accent {
+        .button.hollow.alert:hover .iconic *.iconic-property-accent, .main .hollow.login-button:hover .iconic *.iconic-property-accent {
           fill: #f4715b;
           stroke: #f4715b; }
-    .button.hollow.info {
+    .button.hollow.info, .main .hollow.info.login-button {
       border: 1px solid #A0D3E8;
       background: transparent;
       color: #A0D3E8; }
-      .button.hollow.info:hover, .button.hollow.info:focus {
+      .button.hollow.info:hover, .main .hollow.info.login-button:hover, .button.hollow.info:focus, .main .hollow.info.login-button:focus {
         border-color: #b8deee;
         background: transparent;
         color: #b8deee; }
-      .button.hollow.info .iconic * {
+      .button.hollow.info .iconic *, .main .hollow.info.login-button .iconic * {
         fill: #A0D3E8;
         stroke: #A0D3E8; }
-        .button.hollow.info .iconic *.iconic-property-accent {
+        .button.hollow.info .iconic *.iconic-property-accent, .main .hollow.info.login-button .iconic *.iconic-property-accent {
           fill: #A0D3E8;
           stroke: #A0D3E8; }
-      .button.hollow.info:hover .iconic * {
+      .button.hollow.info:hover .iconic *, .main .hollow.info.login-button:hover .iconic * {
         fill: #b8deee;
         stroke: #b8deee; }
-        .button.hollow.info:hover .iconic *.iconic-property-accent {
+        .button.hollow.info:hover .iconic *.iconic-property-accent, .main .hollow.info.login-button:hover .iconic *.iconic-property-accent {
           fill: #b8deee;
           stroke: #b8deee; }
-    .button.hollow.dark {
+    .button.hollow.dark, .main .hollow.dark.login-button {
       border: 1px solid #232323;
       background: transparent;
       color: #232323; }
-      .button.hollow.dark:hover, .button.hollow.dark:focus {
+      .button.hollow.dark:hover, .main .hollow.dark.login-button:hover, .button.hollow.dark:focus, .main .hollow.dark.login-button:focus {
         border-color: #5a5a5a;
         background: transparent;
         color: #5a5a5a; }
-      .button.hollow.dark .iconic * {
+      .button.hollow.dark .iconic *, .main .hollow.dark.login-button .iconic * {
         fill: #232323;
         stroke: #232323; }
-        .button.hollow.dark .iconic *.iconic-property-accent {
+        .button.hollow.dark .iconic *.iconic-property-accent, .main .hollow.dark.login-button .iconic *.iconic-property-accent {
           fill: #232323;
           stroke: #232323; }
-      .button.hollow.dark:hover .iconic * {
+      .button.hollow.dark:hover .iconic *, .main .hollow.dark.login-button:hover .iconic * {
         fill: #5a5a5a;
         stroke: #5a5a5a; }
-        .button.hollow.dark:hover .iconic *.iconic-property-accent {
+        .button.hollow.dark:hover .iconic *.iconic-property-accent, .main .hollow.dark.login-button:hover .iconic *.iconic-property-accent {
           fill: #5a5a5a;
           stroke: #5a5a5a; }
-  .button.disabled {
+  .button.disabled, .main .disabled.login-button {
     opacity: 0.5;
     cursor: default;
     pointer-events: none; }
@@ -1212,13 +1212,13 @@ a, [ui-sref], [zf-open], [zf-close], [zf-toggle] {
     margin-right: 0.25em;
     margin-top: -2px; }
 
-.button-group.segmented, .button-group.segmented.secondary, .button-group.segmented.success, .button-group.segmented.warning, .button-group.segmented.alert {
+.button-group.segmented, .button-group.segmented.secondary, .button-group.segmented.success, .button-group.segmented.warning, .button-group.segmented.alert, .main .button-group.segmented.login-button {
   border: 1px solid #00558b;
   transition-property: background color; }
-  .button-group.segmented > li > input[type="radio"] {
+  .button-group.segmented > li > input[type="radio"], .main .button-group.segmented.login-button > li > input[type="radio"] {
     position: absolute;
     left: -9999px; }
-  .button-group.segmented > li > a, .button-group.segmented.secondary > li > a, .button-group.segmented.success > li > a, .button-group.segmented.warning > li > a, .button-group.segmented.alert > li > a, .button-group.segmented > li > label, .button-group.segmented.secondary > li > label, .button-group.segmented.success > li > label, .button-group.segmented.warning > li > label, .button-group.segmented.alert > li > label, .button-group.segmented > li > button, .button-group.segmented.secondary > li > button, .button-group.segmented.success > li > button, .button-group.segmented.warning > li > button, .button-group.segmented.alert > li > button {
+  .button-group.segmented > li > a, .button-group.segmented.secondary > li > a, .button-group.segmented.success > li > a, .button-group.segmented.warning > li > a, .button-group.segmented.alert > li > a, .main .button-group.segmented.login-button > li > a, .button-group.segmented > li > label, .button-group.segmented.secondary > li > label, .button-group.segmented.success > li > label, .button-group.segmented.warning > li > label, .button-group.segmented.alert > li > label, .main .button-group.segmented.login-button > li > label, .button-group.segmented > li > button, .button-group.segmented.secondary > li > button, .button-group.segmented.success > li > button, .button-group.segmented.warning > li > button, .button-group.segmented.alert > li > button, .main .button-group.segmented.login-button > li > button {
     margin-right: 0;
     background: transparent; }
 
@@ -1287,20 +1287,20 @@ a, [ui-sref], [zf-open], [zf-close], [zf-toggle] {
         stroke: #fff; }
   .button-group.warning > li.is-active > a, .button-group.warning > li.is-active > label, .button-group.warning > li.is-active > button {
     background: #dc750f; }
-  .button-group.alert > li > a, .button-group.alert > li > label, .button-group.alert > li > button {
+  .button-group.alert > li > a, .main .button-group.login-button > li > a, .button-group.alert > li > label, .main .button-group.login-button > li > label, .button-group.alert > li > button, .main .button-group.login-button > li > button {
     background: #F04124;
     color: #fff;
     border-color: #dc2c0f; }
-    .button-group.alert > li > a:hover, .button-group.alert > li > a:focus, .button-group.alert > li > label:hover, .button-group.alert > li > label:focus, .button-group.alert > li > button:hover, .button-group.alert > li > button:focus {
+    .button-group.alert > li > a:hover, .main .button-group.login-button > li > a:hover, .button-group.alert > li > a:focus, .main .button-group.login-button > li > a:focus, .button-group.alert > li > label:hover, .main .button-group.login-button > li > label:hover, .button-group.alert > li > label:focus, .main .button-group.login-button > li > label:focus, .button-group.alert > li > button:hover, .main .button-group.login-button > li > button:hover, .button-group.alert > li > button:focus, .main .button-group.login-button > li > button:focus {
       background: #dc2c0f;
       color: #fff; }
-    .button-group.alert > li > a .iconic *, .button-group.alert > li > label .iconic *, .button-group.alert > li > button .iconic * {
+    .button-group.alert > li > a .iconic *, .main .button-group.login-button > li > a .iconic *, .button-group.alert > li > label .iconic *, .main .button-group.login-button > li > label .iconic *, .button-group.alert > li > button .iconic *, .main .button-group.login-button > li > button .iconic * {
       fill: #fff;
       stroke: #fff; }
-      .button-group.alert > li > a .iconic *.iconic-property-accent, .button-group.alert > li > label .iconic *.iconic-property-accent, .button-group.alert > li > button .iconic *.iconic-property-accent {
+      .button-group.alert > li > a .iconic *.iconic-property-accent, .main .button-group.login-button > li > a .iconic *.iconic-property-accent, .button-group.alert > li > label .iconic *.iconic-property-accent, .main .button-group.login-button > li > label .iconic *.iconic-property-accent, .button-group.alert > li > button .iconic *.iconic-property-accent, .main .button-group.login-button > li > button .iconic *.iconic-property-accent {
         fill: #fff;
         stroke: #fff; }
-  .button-group.alert > li.is-active > a, .button-group.alert > li.is-active > label, .button-group.alert > li.is-active > button {
+  .button-group.alert > li.is-active > a, .main .button-group.login-button > li.is-active > a, .button-group.alert > li.is-active > label, .main .button-group.login-button > li.is-active > label, .button-group.alert > li.is-active > button, .main .button-group.login-button > li.is-active > button {
     background: #dc2c0f; }
   .button-group > li.secondary > a, .button-group > li.secondary > label, .button-group > li.secondary > button {
     background: #f1f1f1;
@@ -1347,19 +1347,19 @@ a, [ui-sref], [zf-open], [zf-close], [zf-toggle] {
       .button-group > li.warning > a .iconic *.iconic-property-accent, .button-group > li.warning > label .iconic *.iconic-property-accent, .button-group > li.warning > button .iconic *.iconic-property-accent {
         fill: #fff;
         stroke: #fff; }
-  .button-group > li.alert > a, .button-group > li.alert > label, .button-group > li.alert > button {
+  .button-group > li.alert > a, .main .button-group > li.login-button > a, .button-group > li.alert > label, .main .button-group > li.login-button > label, .button-group > li.alert > button, .main .button-group > li.login-button > button {
     background: #F04124;
     color: #fff;
     border-color: #F04124; }
-    .button-group > li.alert > a:hover, .button-group > li.alert > a:focus, .button-group > li.alert > label:hover, .button-group > li.alert > label:focus, .button-group > li.alert > button:hover, .button-group > li.alert > button:focus {
+    .button-group > li.alert > a:hover, .main .button-group > li.login-button > a:hover, .button-group > li.alert > a:focus, .main .button-group > li.login-button > a:focus, .button-group > li.alert > label:hover, .main .button-group > li.login-button > label:hover, .button-group > li.alert > label:focus, .main .button-group > li.login-button > label:focus, .button-group > li.alert > button:hover, .main .button-group > li.login-button > button:hover, .button-group > li.alert > button:focus, .main .button-group > li.login-button > button:focus {
       background: #dc2c0f;
       color: #fff; }
-    .button-group > li.alert > a:hover, .button-group > li.alert > a:focus, .button-group > li.alert > label:hover, .button-group > li.alert > label:focus, .button-group > li.alert > button:hover, .button-group > li.alert > button:focus {
+    .button-group > li.alert > a:hover, .main .button-group > li.login-button > a:hover, .button-group > li.alert > a:focus, .main .button-group > li.login-button > a:focus, .button-group > li.alert > label:hover, .main .button-group > li.login-button > label:hover, .button-group > li.alert > label:focus, .main .button-group > li.login-button > label:focus, .button-group > li.alert > button:hover, .main .button-group > li.login-button > button:hover, .button-group > li.alert > button:focus, .main .button-group > li.login-button > button:focus {
       border-color: #c2270d; }
-    .button-group > li.alert > a .iconic *, .button-group > li.alert > label .iconic *, .button-group > li.alert > button .iconic * {
+    .button-group > li.alert > a .iconic *, .main .button-group > li.login-button > a .iconic *, .button-group > li.alert > label .iconic *, .main .button-group > li.login-button > label .iconic *, .button-group > li.alert > button .iconic *, .main .button-group > li.login-button > button .iconic * {
       fill: #fff;
       stroke: #fff; }
-      .button-group > li.alert > a .iconic *.iconic-property-accent, .button-group > li.alert > label .iconic *.iconic-property-accent, .button-group > li.alert > button .iconic *.iconic-property-accent {
+      .button-group > li.alert > a .iconic *.iconic-property-accent, .main .button-group > li.login-button > a .iconic *.iconic-property-accent, .button-group > li.alert > label .iconic *.iconic-property-accent, .main .button-group > li.login-button > label .iconic *.iconic-property-accent, .button-group > li.alert > button .iconic *.iconic-property-accent, .main .button-group > li.login-button > button .iconic *.iconic-property-accent {
         fill: #fff;
         stroke: #fff; }
   .button-group.segmented {
@@ -1470,38 +1470,38 @@ a, [ui-sref], [zf-open], [zf-close], [zf-toggle] {
         .button-group.segmented.warning > li > input:checked + label .iconic *.iconic-property-accent {
           fill: #fff;
           stroke: #fff; }
-    .button-group.segmented.alert {
+    .button-group.segmented.alert, .main .button-group.segmented.login-button {
       border-color: #F04124; }
-      .button-group.segmented.alert > li > a, .button-group.segmented.alert > li > label, .button-group.segmented.alert > li > button {
+      .button-group.segmented.alert > li > a, .main .button-group.segmented.login-button > li > a, .button-group.segmented.alert > li > label, .main .button-group.segmented.login-button > li > label, .button-group.segmented.alert > li > button, .main .button-group.segmented.login-button > li > button {
         border-color: #F04124;
         color: #F04124; }
-        .button-group.segmented.alert > li > a:hover, .button-group.segmented.alert > li > label:hover, .button-group.segmented.alert > li > button:hover {
+        .button-group.segmented.alert > li > a:hover, .main .button-group.segmented.login-button > li > a:hover, .button-group.segmented.alert > li > label:hover, .main .button-group.segmented.login-button > li > label:hover, .button-group.segmented.alert > li > button:hover, .main .button-group.segmented.login-button > li > button:hover {
           background: rgba(240, 65, 36, 0.25);
           color: #F04124; }
-        .button-group.segmented.alert > li > a .iconic *, .button-group.segmented.alert > li > label .iconic *, .button-group.segmented.alert > li > button .iconic * {
+        .button-group.segmented.alert > li > a .iconic *, .main .button-group.segmented.login-button > li > a .iconic *, .button-group.segmented.alert > li > label .iconic *, .main .button-group.segmented.login-button > li > label .iconic *, .button-group.segmented.alert > li > button .iconic *, .main .button-group.segmented.login-button > li > button .iconic * {
           fill: #F04124;
           stroke: #F04124; }
-          .button-group.segmented.alert > li > a .iconic *.iconic-property-accent, .button-group.segmented.alert > li > label .iconic *.iconic-property-accent, .button-group.segmented.alert > li > button .iconic *.iconic-property-accent {
+          .button-group.segmented.alert > li > a .iconic *.iconic-property-accent, .main .button-group.segmented.login-button > li > a .iconic *.iconic-property-accent, .button-group.segmented.alert > li > label .iconic *.iconic-property-accent, .main .button-group.segmented.login-button > li > label .iconic *.iconic-property-accent, .button-group.segmented.alert > li > button .iconic *.iconic-property-accent, .main .button-group.segmented.login-button > li > button .iconic *.iconic-property-accent {
             fill: #F04124;
             stroke: #F04124; }
-      .button-group.segmented.alert > li.is-active > a, .button-group.segmented.alert > li.is-active > a:hover,
-      .button-group.segmented.alert > li > input:checked + label,
-      .button-group.segmented.alert > li > input:checked + label:hover {
+      .button-group.segmented.alert > li.is-active > a, .main .button-group.segmented.login-button > li.is-active > a, .button-group.segmented.alert > li.is-active > a:hover, .main .button-group.segmented.login-button > li.is-active > a:hover,
+      .button-group.segmented.alert > li > input:checked + label, .main .button-group.segmented.login-button > li > input:checked + label,
+      .button-group.segmented.alert > li > input:checked + label:hover, .main .button-group.segmented.login-button > li > input:checked + label:hover {
         background: #F04124;
         color: #fff; }
-      .button-group.segmented.alert > li.is-active > a .iconic *,
-      .button-group.segmented.alert > li > input:checked + label .iconic * {
+      .button-group.segmented.alert > li.is-active > a .iconic *, .main .button-group.segmented.login-button > li.is-active > a .iconic *,
+      .button-group.segmented.alert > li > input:checked + label .iconic *, .main .button-group.segmented.login-button > li > input:checked + label .iconic * {
         fill: #fff;
         stroke: #fff; }
-        .button-group.segmented.alert > li.is-active > a .iconic *.iconic-property-accent,
-        .button-group.segmented.alert > li > input:checked + label .iconic *.iconic-property-accent {
+        .button-group.segmented.alert > li.is-active > a .iconic *.iconic-property-accent, .main .button-group.segmented.login-button > li.is-active > a .iconic *.iconic-property-accent,
+        .button-group.segmented.alert > li > input:checked + label .iconic *.iconic-property-accent, .main .button-group.segmented.login-button > li > input:checked + label .iconic *.iconic-property-accent {
           fill: #fff;
           stroke: #fff; }
   .button-group.tiny {
     font-size: 0.63rem; }
   .button-group.small {
     font-size: 0.72rem; }
-  .button-group.large {
+  .button-group.large, .main .button-group.login-button {
     font-size: 1.17rem; }
   .button-group.expand {
     display: flex; }
@@ -1590,7 +1590,7 @@ a, [ui-sref], [zf-open], [zf-close], [zf-toggle] {
     .card.warning .card-divider {
       background: #f19233;
       padding: 1rem; }
-  .card.alert {
+  .card.alert, .main .card.login-button {
     border: 0;
     margin-bottom: 0.5rem;
     background: #F04124;
@@ -1598,13 +1598,13 @@ a, [ui-sref], [zf-open], [zf-close], [zf-toggle] {
     border-radius: 4px;
     box-shadow: 0 1px 2px rgba(0, 0, 0, 0.2);
     overflow: hidden; }
-    .card.alert h1, .card.alert h2, .card.alert h3, .card.alert h4, .card.alert h5, .card.alert h6 {
+    .card.alert h1, .main .card.login-button h1, .card.alert h2, .main .card.login-button h2, .card.alert h3, .main .card.login-button h3, .card.alert h4, .main .card.login-button h4, .card.alert h5, .main .card.login-button h5, .card.alert h6, .main .card.login-button h6 {
       color: inherit; }
-    .card.alert ul {
+    .card.alert ul, .main .card.login-button ul {
       margin-bottom: 0; }
-    .card.alert img {
+    .card.alert img, .main .card.login-button img {
       width: 100%; }
-    .card.alert .card-divider {
+    .card.alert .card-divider, .main .card.login-button .card-divider {
       background: #f14e33;
       padding: 1rem; }
   .card.dark {
@@ -3174,7 +3174,7 @@ meter {
     background: #F08A24;
     border-radius: 0;
     color: #fff; }
-  .label.alert {
+  .label.alert, .main .label.login-button {
     background: #F04124;
     border-radius: 0;
     color: #fff; }
@@ -3210,7 +3210,7 @@ meter {
   .badge.warning {
     background: #F08A24;
     color: #fff; }
-  .badge.alert {
+  .badge.alert, .main .badge.login-button {
     background: #F04124;
     color: #fff; }
   .badge.dark {
@@ -3783,7 +3783,7 @@ meter {
     max-width: 300px; }
   .small > .modal {
     max-width: 500px; }
-  .large > .modal {
+  .large > .modal, .main .login-button > .modal {
     max-width: 800px; }
   .dialog > .modal {
     height: auto; }
@@ -4404,11 +4404,11 @@ meter {
     border-radius: 4px; }
     .notification.warning, .notification.warning h1, .notification.warning h2, .notification.warning h3, .notification.warning h4, .notification.warning h5, .notification.warning h6 {
       color: white; }
-  .notification.alert {
+  .notification.alert, .main .notification.login-button {
     background: #F04124;
     padding: 1rem;
     border-radius: 4px; }
-    .notification.alert, .notification.alert h1, .notification.alert h2, .notification.alert h3, .notification.alert h4, .notification.alert h5, .notification.alert h6 {
+    .notification.alert, .main .notification.login-button, .notification.alert h1, .main .notification.login-button h1, .notification.alert h2, .main .notification.login-button h2, .notification.alert h3, .main .notification.login-button h3, .notification.alert h4, .main .notification.login-button h4, .notification.alert h5, .main .notification.login-button h5, .notification.alert h6, .main .notification.login-button h6 {
       color: white; }
   .notification.dark {
     background: #232323;
@@ -4501,11 +4501,11 @@ meter {
     border-radius: 4px; }
     .static-notification.warning, .static-notification.warning h1, .static-notification.warning h2, .static-notification.warning h3, .static-notification.warning h4, .static-notification.warning h5, .static-notification.warning h6 {
       color: white; }
-  .static-notification.alert {
+  .static-notification.alert, .main .static-notification.login-button {
     background: #F04124;
     padding: 1rem;
     border-radius: 4px; }
-    .static-notification.alert, .static-notification.alert h1, .static-notification.alert h2, .static-notification.alert h3, .static-notification.alert h4, .static-notification.alert h5, .static-notification.alert h6 {
+    .static-notification.alert, .main .static-notification.login-button, .static-notification.alert h1, .main .static-notification.login-button h1, .static-notification.alert h2, .main .static-notification.login-button h2, .static-notification.alert h3, .main .static-notification.login-button h3, .static-notification.alert h4, .main .static-notification.login-button h4, .static-notification.alert h5, .main .static-notification.login-button h5, .static-notification.alert h6, .main .static-notification.login-button h6 {
       color: white; }
   .static-notification.dark {
     background: #232323;
@@ -4828,13 +4828,13 @@ meter {
       height: 1.625rem; }
     .switch.small input:checked + label::after {
       left: 0.875rem; }
-  .switch.large {
+  .switch.large, .main .switch.login-button {
     width: 3.75rem;
     height: 2.375rem; }
-    .switch.large > label::after {
+    .switch.large > label::after, .main .switch.login-button > label::after {
       width: 2.375rem;
       height: 2.375rem; }
-    .switch.large input:checked + label::after {
+    .switch.large input:checked + label::after, .main .switch.login-button input:checked + label::after {
       left: 1.375rem; }
 
 /*
