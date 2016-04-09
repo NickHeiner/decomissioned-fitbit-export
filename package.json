@@ -46,8 +46,8 @@
     "morgan": "^1.1.1",
     "newrelic": "^1.12.1",
     "oauth": "^0.9.12",
-    "passport": "^0.2.0",
-    "passport-fitbit": "^0.1.2",
+    "passport": "^0.3.2",
+    "passport-fitbit": "^1.1.0",
     "q": "^1.0.1",
     "traverse": "^0.6.6"
   }
