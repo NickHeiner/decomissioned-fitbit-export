@@ -5520,7 +5520,14 @@ body {
     .hero-image [size=medium] {
       display: inherit; } }
 
-.explanation {
+.title-bar .user-avatar {
+  height: 50px;
+  border-radius: 100%; }
+
+.main {
   background: #fff; }
-  .explanation h2 {
-    text-align: center; }
+  .main .export-button-block {
+    margin-top: 10px; }
+
+.explanation h2 {
+  text-align: center; }

@@ -29,13 +29,14 @@
                     <% if (!user) { %>
                         <a href="/auth/fitbit">Log in</a>
                     <% } else { %>
-                        <img src="<%= user._json.user.avatar150 %>"/>
                         Logged in as <%= user.displayName %>
+                        <img class="user-avatar" src="<%= user._json.user.avatar150 %>"/>
                     <% } %>
                 </span>
             </div>
         </div>
 
+        <div class="main">
         <% if (!user) { %>
 
             <div class="hero-image">
@@ -101,6 +102,41 @@
                 </div>
             </div>
 
+        <% } else { %>
+            <div class="grid-block align-center export-button-block">
+                <a href="/export.csv" class="large success button">Download all available data as a csv.</a>
+            </div>
+            <div class="grid-block small-up-1 large-up-2 explanation">
+                <div class="grid-container">
+                    <h2>What next?</h2>
+                    <p>
+                        This app does not do any processing of the data; there are many great existing tools for that, including:
+                    </p>
+                    <ul>
+                        <li><a href="https://office.live.com/start/excel.aspx">Microsoft Excel</a></li>
+                        <li><a href="https://docs.google.com/spreadsheets">Google Spreadsheets</a></li>
+                        <li><a href="http://nodejs.org/">NodeJS</a></li>
+                        <li><a href="https://www.python.org/">Python</a></li>
+                        <li><a href="http://www.r-project.org/">R</a></li>
+                        <li><a href="https://www.ruby-lang.org/en/">Ruby</a></li>
+                    </ul>
+                    <p>
+                        All units are in metric as listed on the
+                        <a href="https://dev.fitbit.com/docs/basics/#units">Fitbit api page</a>. If you would rather use another system, you can use one of the tools mentioned above to transform your data. Amusingly, this seems to give you data back to 2011, even if (like me) you only got your fitbit in 2013. I don't know why this is. When the app asks fitbit's API for the entire time range of data, that's the response.
+                    </p>
+                </div>
+                <div class="grid-container">
+                    <h2>Having problems?</h2>
+                    <p>
+                    If you have a lot of data, this could take a little while. If you are opening the page
+                    directly, the page may be slow to load. If you are downloading it as a file, the browser
+                    may delay before showing you the "save file as" dialog. This delay does not indicate a problem;
+                    it just takes Fitbit time to return all your data. To download the data directly as a file, right click on the button and choose "Save Link As".
+                    </p>
+                </div>
+            </div>
+        <% } %>
+
             <div class="grid-block small-up-1 large-up-2 explanation">
                 <div class="grid-block">
                     <div class="grid-container">
@@ -115,39 +151,7 @@
                     </div>
                 </div>
             </div>
-        <% } else { %>
-                <p> <%= user.displayName %></p>
-                <p><a href="/export.csv">Download all available data as a csv</a>.</p>
-                <ul>
-                    <li>(It would probably be easiest to <kbd>right click</kbd> that link and <kbd>save as</kbd>.)</li>
-                    <li>If you have a lot of data, this could take a little while. If you are opening the page
-                        directly, the page may be slow to load. If you are downloading it as a file, the browser
-                        may delay before showing you the "save file as" dialog. This delay does not indicate a problem;
-                        it just takes Fitbit time to manifest all your data.
-                    </li>
-                    <li>This is a weekend project that I threw together in a few hours, so it's pretty bare-bones. (That said, if you're interested in contributing, I definitely accept pull requests on github.)
-                    I'm more interested in making this a great tool for exporting data than reinventing data processing functionality that already exists in other programs. There are all sorts of great tools for processing .csv files, including:
-                    <ul>
-                        <li><a href="https://office.live.com/start/excel.aspx">Excel</a></li>
-                        <li><a href="https://docs.google.com/spreadsheets">Google Spreadsheets</a></li>
-                        <li><a href="http://nodejs.org/">nodejs</a></li>
-                        <li><a href="https://www.python.org/">python</a></li>
-                        <li><a href="http://www.r-project.org/">r</a></li>
-                        <li><a href="https://www.ruby-lang.org/en/">ruby</a></li>
-                    </ul>
-                    </li>
-                    <li>All units are in metric as listed on the
-                        <a href="https://dev.fitbit.com/docs/basics/#units">Fitbit api page</a>. If you would rather use another system, you can use one of the tools mentioned above to transform your data.</li>
-                    <li>Amusingly, this seems to give you data back to 2011, even if (like me) you only got your fitbit in 2013. I don't know why this is. When the app asks fitbit's API for the entire time range of data, that's the response.</li>
-                </ul>
-            <% } %>
-            <p>This is an app by <a href="https://www.twitter.com/nickheiner">Nick Heiner</a>.
-                <a href="https://github.com/NickHeiner/fitbit-export">Source code is available on Github</a>
-                - PRs accepted!</p> Please tweet @nickheiner if you run into any issues or have any other feedback.
         </div>
-    -->
-
-
     </div>
     <script>
       (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){

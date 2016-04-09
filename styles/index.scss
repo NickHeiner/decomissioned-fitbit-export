@@ -106,9 +106,22 @@ body {
     }
 }
 
-.explanation {
+.title-bar {
+    .user-avatar {
+        height: 50px;
+        border-radius: 100%;
+    }
+}
+
+.main {
     background: $body-background;
 
+    .export-button-block {
+        margin-top: 10px;
+    }
+}
+
+.explanation {
     h2 {
         text-align: center;
     }
