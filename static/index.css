@@ -5479,6 +5479,7 @@ blockquote p {
   padding: 0 0; }
 
 body {
+  background-color: #00558b;
   font-size: 3rem; }
   body h1 {
     font-size: 5.5rem; }
@@ -5519,5 +5520,7 @@ body {
     .hero-image [size=medium] {
       display: inherit; } }
 
-.explanation h2 {
-  text-align: center; }
+.explanation {
+  background: #fff; }
+  .explanation h2 {
+    text-align: center; }
