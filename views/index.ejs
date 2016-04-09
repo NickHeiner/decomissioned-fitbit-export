@@ -28,40 +28,46 @@
                 <span class="right">
                     <% if (!user) { %>
                         <a href="/auth/fitbit">Log in</a>
+                    <% } else { %>
+                        <img src="<%= user._json.user.avatar150 %>"/>
+                        Logged in as <%= user.displayName %>
                     <% } %>
                 </span>
             </div>
         </div>
 
-        <div class="hero-image">
-            <div class="grid-block hero-inner">
-                <div class="grid-container">
-                    <div class="grid-content hero-content">
-                        <h1>Export your historical Fitbit data for free
-                        </h1>
-                        <div class="grid-block align-center">
-                            <div class="grid-block small-1">
-                                <div class="grid-content">
-                                    <a href="/auth/fitbit">
-                                        <img zf-iconic="" icon="chevron" size="medium" class="iconic-color-secondary">
-                                        <img zf-iconic="" icon="chevron" size="large" class="iconic-color-secondary">
-                                    </a>
+        <% if (!user) { %>
+
+            <div class="hero-image">
+                <div class="grid-block hero-inner">
+                    <div class="grid-container">
+                        <div class="grid-content hero-content">
+                            <h1>Export your historical Fitbit data for free
+                            </h1>
+                            <div class="grid-block align-center">
+                                <div class="grid-block small-1">
+                                    <div class="grid-content">
+                                        <a href="/auth/fitbit">
+                                            <img zf-iconic="" icon="chevron" size="medium" class="iconic-color-secondary">
+                                            <img zf-iconic="" icon="chevron" size="large" class="iconic-color-secondary">
+                                        </a>
+                                    </div>
                                 </div>
                             </div>
                         </div>
                     </div>
                 </div>
             </div>
-        </div>
 
-        <div class="grid-block explanation small-up-1 large-up-3">
-            <div class="grid-block">
-                <div class="grid-container">
-                    <h2>What?</h2>
-                    <p>
-                        This app extracts data from Fitbit.
-                        You can download this data in a <a href="http://en.wikipedia.org/wiki/Comma-separated_values">CSV</a> file.
-                        Each row of this CSV file corresponds to a single day in your Fitbit record. Each row contains columns representing the value for that day, including:
+            <div class="grid-block explanation small-up-1 large-up-3">
+                <div class="grid-block">
+                    <div class="grid-container">
+                        <h2>What?</h2>
+                        <p>
+                            This app extracts your data from Fitbit.
+                            You can download this data in a <a href="http://en.wikipedia.org/wiki/Comma-separated_values">CSV</a> file.
+                            Each row of this CSV file corresponds to a single day in your Fitbit record. Each row contains columns representing the value for that day, including:
+                        </p>
                         <ul>
                             <li>Steps</li>
                             <li>Distance</li>
@@ -71,85 +77,46 @@
                             <li>Sleep Efficiency</li>
                             <li>Body weight</li>
                         </ul>
-                    </p>
+                        <p>This is available to all fitbit users. No premium required!</p>
+                    </div>
+                </div>
+                <div class="grid-block">
+                    <div class="grid-container">
+                        <h2>How?</h2>
+                        <ol>
+                            <li><a href="/auth/fitbit">Log in with Fitbit.</a></li>
+                            <li>Click the "Download CSV" link on the next page.</li>
+                            <li>The app loads your data from the <a href="https://dev.fitbit.com/docs/">Fitbit API.</a></li>
+                            <li>Enjoy!</li>
+                        </ol>
+                    </div>
+                </div>
+                <div class="grid-block">
+                    <div class="grid-container">
+                        <h2>Trust</h2>
+                        <p>
+                            This app does not persist your data at any time. The data just passes straight through from the Fitbit API to you. You can verify this for yourself because the entire app is <a href="https://github.com/NickHeiner/fitbit-export">open source</a>. Additionally, your Fitbit credentials are not shared with this app; you just log in with Fitbit and provide this app temporary permission to access your data so you can download that data. This app requests read-only permission from Fitbit; by signing in to this app, you do not permit it to change any of your data.
+                        </p>
+                    </div>
                 </div>
             </div>
-            <div class="grid-block">
-                <div class="grid-container">
-                    <h2>How?</h2>
-                    <ol>
-                        <li><a href="/auth/fitbit">Log in with Fitbit.</a></li>
-                        <li>Click the "Download CSV" link on the next page.</li>
-                        <li>The app loads your data from the <a href="https://dev.fitbit.com/docs/">Fitbit API.</a></li>
-                        <li>Enjoy!</li>
-                    </ol>
-                </div>
-            </div>
-            <div class="grid-block">
-                <div class="grid-container">
-                    <h2>Trust</h2>
-                    <p>
-                        This app does not persist your data at any time. The data just passes straight through from the Fitbit API to you. You can verify this for yourself because the entire app is <a href="https://github.com/NickHeiner/fitbit-export">open source</a>. Additionally, your Fitbit credentials are not shared with this app; you just log in with Fitbit and provide this app temporary permission to access your data so you can download that data.
-                    </p>
-                </div>
-            </div>
-        </div>
 
-        <div class="grid-block small-up-1 large-up-2 explanation">
-            <div class="grid-block">
-                <div class="grid-container">
-                    <h2>Need help?</h2>
-                    <p>You can tweet to me at <a href="https://twitter.com/nickheiner">@nickheiner</a> if something goes wrong. You can also <a href="https://github.com/NickHeiner/fitbit-export/issues">file an issue on Github</a> if you're in to that sort of thing.</p>
+            <div class="grid-block small-up-1 large-up-2 explanation">
+                <div class="grid-block">
+                    <div class="grid-container">
+                        <h2>Need help?</h2>
+                        <p>You can tweet to me at <a href="https://twitter.com/nickheiner">@nickheiner</a> if something goes wrong. You can also <a href="https://github.com/NickHeiner/fitbit-export/issues">file an issue on Github</a> if you're in to that sort of thing.</p>
+                    </div>
+                </div>
+                <div class="grid-block">
+                    <div class="grid-container">
+                        <h2>Want to help?</h2>
+                        <p>If you can code, you're welcome to send me a pull request on <a href="https://github.com/NickHeiner/fitbit-export/issues">Github</a>. If you can't code, but you would like to support this app, you can <a href="http://paypal.me/nth">donate</a>. This app is limited in the amount of data it can extract because I'm just doing this as a side-project and don't want to spend a lot of money on it; if enough money is donated, I'll buy a better server setup that will allow the app to extract all available data.</p>
+                    </div>
                 </div>
             </div>
-            <div class="grid-block">
-                <div class="grid-container">
-                    <h2>Want to help?</h2>
-                    <p>If you can code, you're welcome to send me a pull request on <a href="https://github.com/NickHeiner/fitbit-export/issues">Github</a>. If you can't code, but you would like to support this app, you can <a href="http://paypal.me/nth">donate</a>. This app is limited in the amount of data it can extract because I'm just doing this as a side-project and don't want to spend a lot of money on it; if enough money is donated, I'll buy a better server setup that will allow the app to extract all available data.</p>
-                </div>
-            </div>
-        </div>
-<!--
-        <div class="grid-block">
-            <h1>Fitbit Data Export</h1>
-            <% if (!user) { %>
-                <p><strong>To begin, <a href="/auth/fitbit">authorize</a> this app to read your fitbit data.</strong></p>
-                <h3>What is this?</h3>
-                <p>This app will grab a bunch of your data from fitbit, format it as a <a href="http://en.wikipedia.org/wiki/Comma-separated_values">csv</a>, and present it to you to download. At no point is any data persisted in this app; it just passes straight through. You can verify this for yourself because the entire app is <a href="https://github.com/NickHeiner/fitbit-export">open source</a>.</p>
-                <p>The format of the data is a csv where each row corresponds to a single day. Each row contains the following fields:</p>
-                <ul>
-                    <li>Date</li>
-                    <li>Food log: calories in</li>
-                    <li>Food log: water</li>
-                    <li>Activities: calories</li>
-                    <li>Activities: calories BMR</li>
-                    <li>Activities: steps</li>
-                    <li>Activities: distance</li>
-                    <li>Activities: floors</li>
-                    <li>Activities: elevation</li>
-                    <li>Activities: minutes sedentary</li>
-                    <li>Activities: minutes lightly active</li>
-                    <li>Activities: minutes fairly active</li>
-                    <li>Activities: minutes very active</li>
-                    <li>Activities: activity calories</li>
-                    <li>Sleep: start time</li>
-                    <li>Sleep: time in bed</li>
-                    <li>Sleep: minutes asleep</li>
-                    <li>Sleep: awakenings amount</li>
-                    <li>Sleep: minutes awake</li>
-                    <li>Sleep: minutes to fall asleep</li>
-                    <li>Sleep: minutes after wakeup</li>
-                    <li>Sleep: efficiency</li>
-                    <li>Body: weight</li>
-                    <li>Body: bmi</li>
-                    <li>Body: fat</li>
-                </ul>
-                <p>If you don't have data for some of those fields (eg you don't keep a food log), they will just be blank.</p>
-                <p>For more detail, see the <a href="https://dev.fitbit.com/docs">Fitbit API documentation.</a></p>
-                <p>This is available to all fitbit users. No premium required!</p>
-                <p><strong><a href="/auth/fitbit">Ready to get started?</a></strong></p>
-            <% } else { %>
-                <p><img src="<%= user._json.user.avatar150 %>"/> <%= user.displayName %></p>
+        <% } else { %>
+                <p> <%= user.displayName %></p>
                 <p><a href="/export.csv">Download all available data as a csv</a>.</p>
                 <ul>
                     <li>(It would probably be easiest to <kbd>right click</kbd> that link and <kbd>save as</kbd>.)</li>
