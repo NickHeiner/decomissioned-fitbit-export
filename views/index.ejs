@@ -12,6 +12,7 @@
       })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
 
       ga('create', 'UA-55391906-1', 'auto');
+      ga('require', 'autotrack');
       ga('send', 'pageview');
 
     </script>
@@ -28,6 +29,7 @@
 </script>
 <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.5.3/angular.min.js"></script>
 <script type="text/javascript" src="/static/foundation.js"></script>
+<script type="text/javascript" src="/static/autotrack.js"></script>
 <script type="text/javascript" src="/static/foundation-templates.js"></script>
 <script type="text/javascript" src="/static/index.js"></script>
 <body>
@@ -37,7 +39,13 @@
                 <span class="title left">Fitbit Data Export</span>
                 <span class="right">
                     <% if (!user) { %>
-                        <a href="/auth/fitbit">Log in</a>
+                        <a href="/auth/fitbit"
+                            data-event-category="auth"
+                            data-event-action="log-in"
+                            data-event-label="method"
+                            data-event-value="title-bar">
+                            Log in
+                        </a>
                     <% } else { %>
                         Logged in as <%= user.displayName %>
                         <img class="user-avatar" src="<%= user._json.user.avatar150 %>"/>
@@ -58,7 +66,11 @@
                             <div class="grid-block align-center">
                                 <div class="grid-block small-1">
                                     <div class="grid-content">
-                                        <a href="/auth/fitbit">
+                                        <a href="/auth/fitbit"
+                                            data-event-category="auth"
+                                            data-event-action="log-in"
+                                            data-event-label="method"
+                                            data-event-value="hero">
                                             <img zf-iconic="" icon="chevron" size="medium" class="iconic-color-secondary">
                                             <img zf-iconic="" icon="chevron" size="large" class="iconic-color-secondary">
                                         </a>
@@ -95,7 +107,13 @@
                     <div class="grid-container">
                         <h2>How?</h2>
                         <ol>
-                            <li><a href="/auth/fitbit">Log in with Fitbit.</a></li>
+                            <li><a href="/auth/fitbit"
+                                    data-event-category="auth"
+                                    data-event-action="log-in"
+                                    data-event-label="method"
+                                    data-event-value="how">
+                                    Log in with Fitbit.
+                                </a></li>
                             <li>Click the "Download CSV" link on the next page.</li>
                             <li>The app loads your data from the <a href="https://dev.fitbit.com/docs/">Fitbit API.</a></li>
                             <li>Enjoy!</li>
@@ -114,7 +132,13 @@
 
         <% } else { %>
             <div class="grid-block align-center export-button-block">
-                <a href="/export.csv" class="large success button">Download all available data as a csv</a>
+                <a href="/export.csv" class="large success button"
+                    data-event-category="download"
+                    data-event-action="button-click"
+                    data-event-label="method"
+                    data-event-value="export-button">
+                    Download all available data as a csv
+                </a>
             </div>
             <div class="grid-block small-up-1 large-up-2 explanation">
                 <div class="grid-container">
