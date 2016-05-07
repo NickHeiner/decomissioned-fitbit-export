@@ -51,20 +51,6 @@ app.get('/static/autotrack.js', function(req, res) {
     );
 });
 
-app.get(/^\/assets\/img\/iconic\/(.*)$/, function(req, res) {
-    res.sendFile(
-        // This will just 500 instead of 404ing if the file is not found.
-        // Not great, but for a side project I don't think it's the end of the world.
-        require.resolve(`foundation-apps/iconic/${req.params[0]}`),
-
-        // This is a shit way to do caching, but since the site is fairly low
-        // traffic, hopefully this will allow repeat page views to be faster,
-        // without causing a ton of issues when I do a deploy.
-        {maxAge: moment.duration(10, 'minutes').asMilliseconds()}
-    );
-});
-
-
 app.use('/static', express.static('static'));
 
 app.get('/export.csv', exportCsv);
