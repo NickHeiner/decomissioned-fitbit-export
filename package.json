@@ -25,11 +25,11 @@
   "devDependencies": {
     "chai": "^1.9.1",
     "foundation-apps": "^1.2.0",
-    "grunt": "^0.4.5",
-    "grunt-cli": "^0.1.13",
-    "grunt-contrib-jshint": "^0.10.0",
-    "grunt-mocha-test": "^0.11.0",
-    "load-grunt-tasks": "^0.4.0",
+    "grunt": "^1.0.1",
+    "grunt-cli": "^1.2.0",
+    "grunt-contrib-jshint": "^1.0.0",
+    "grunt-mocha-test": "^0.12.7",
+    "load-grunt-tasks": "^3.5.0",
     "node-sass": "^3.4.2"
   },
   "engines": {
@@ -43,6 +43,7 @@
     "i": "^0.3.2",
     "json2csv": "^2.2.1",
     "lodash": "^2.4.1",
+    "mocha": "^2.4.5",
     "moment": "^2.12.0",
     "morgan": "^1.1.1",
     "newrelic": "^1.12.1",
