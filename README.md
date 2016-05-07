@@ -16,3 +16,7 @@ You must have the following env vars defined:
 #### Any random string
 * `FITBIT_DATA_EXPORT_SESSION_SECRET`
 * `FITBIT_DATA_EXPORT_DEV_SESSION_SECRET`
+
+### Deployment
+This site is deployed to Microsoft Azure. Be aware of [the node_modules issue](http://stackoverflow.com/questions/37090522/force-node-modules-to-be-reinstalled) when deploying, since that
+can create inconsistency between local and deployed development.
