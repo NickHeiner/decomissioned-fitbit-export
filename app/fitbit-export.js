@@ -10,6 +10,7 @@ var express = require('express'),
     traverse = require('traverse'),
     passport = require('passport'),
     getConfig = require('./get-config'),
+    moment = require('moment'),
     _ = require('lodash'),
     exportCsv = _.curry(require('./export-csv'))(app),
     auth = require('./auth'),
@@ -38,6 +39,19 @@ app.get('/diagnostics.json', function(req, res) {
         nodeJsVersion: process.version
     });
 });
+
+app.get('/static/autotrack.js', function(req, res) {
+    res.sendFile(
+        require.resolve('autotrack/autotrack.js'),
+
+        // This is a shit way to do caching, but since the site is fairly low
+        // traffic, hopefully this will allow repeat page views to be faster,
+        // without causing a ton of issues when I do a deploy.
+        {maxAge: moment.duration(10, 'minutes').asMilliseconds()}
+    );
+});
+
+app.use('/static', express.static('static'));
 
 app.get('/export.csv', exportCsv);
 

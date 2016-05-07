@@ -1,0 +1,154 @@
+[ng\:cloak], [ng-cloak], [data-ng-cloak], [x-ng-cloak], .ng-cloak, .x-ng-cloak {
+  display: none !important;
+}
+
+@import "./node_modules/foundation-apps/scss/foundation";
+
+.full-width-grid-content {
+    @include grid-content(shrink);
+
+    // I can't figure out how to do this with SCSS vars.
+    // I just want to affect this one class; I don't
+    // want to set the $block-padding var for all classes.
+    padding: 0 0;
+}
+
+body {
+    background-color: $primary-color;
+
+    $button-size-increase-factor: 1.5;
+
+    // Foundation offers a bunch of vars to control font-size,
+    // but I don't think that setting them in a breakpoing mixin
+    // does anything.
+
+    // These media queries make it look good on desktop on full screen,
+    // and on my phone. However, shrinking the desktop view makes it look like ass.
+    // I'm not sure what to do about this.
+    @include breakpoint(small) {
+        &, p, li, a.button {
+            font-size: $paragraph-font-size * 2.5;
+        }
+
+        .button.large {
+            font-size: $button-font-size * 2.5 * $button-size-increase-factor;
+        }
+
+        h1 {
+            font-size: $h1-font-size * 2;
+        }
+
+        h2 {
+            font-size: $h2-font-size * 2;
+        }
+    }
+
+    @include breakpoint(large) {
+        &, p, li, a.button {
+            font-size: $paragraph-font-size;
+        }
+
+        .button.large {
+            font-size: ($button-font-size * map-get($button-sizes, large)) * $button-size-increase-factor;
+        }
+
+        h1 {
+            font-size: $h1-font-size;
+        }
+
+        h2 {
+            font-size: $h2-font-size;
+        }
+    }
+
+    // @include breakpoint(large) {
+    //     color: red;
+    //     font-size: 1rem;
+    // }
+}
+
+.hero-image {
+    // I have no idea why this is necessary,
+    // but otherwise there's a 1px split between
+    // the image and the content above it.
+    margin-top: -1px;
+
+    background: transparent url('/static/images/marrowstone.jpg') no-repeat;
+    background-size: cover;
+    background-position: 0 54%;
+    overflow: hidden;
+
+    a > .iconic * {
+        fill: white;
+        stroke: white;
+    }
+
+    .hero-inner {
+        @include breakpoint(small) {
+            height: 550px;
+        }
+
+        @include breakpoint(large) {
+            height: 250px;
+        }
+    }
+
+    .hero-content {
+        // HEY GUYS I HAVE NO IDEA HOW TO DO I VERTICAL CENTERING
+        margin-top: 8%;
+    }
+
+    h1 {
+        color: #fff;
+        text-align: center;
+    }
+
+    // Does this way of resizing the icon suck?
+    @include breakpoint(small) {
+        [size=medium] {
+            display: none;
+        }
+    }
+
+    @include breakpoint(large) {
+        [size=large] {
+            display: none;
+        }
+        [size=medium] {
+            display: inherit;
+        }
+    }
+}
+
+.title-bar {
+    .user-avatar {
+        height: 50px;
+        border-radius: 100%;
+    }
+}
+
+.main {
+    background: $body-background;
+
+    .export-button-block {
+        margin-top: 10px;
+    }
+
+    .login-button {
+        @extend .large;
+        @extend .button;
+
+        // This is not semantic but it gets the color I want.
+        @extend .alert;
+    }
+}
+
+.explanation {
+    h2 {
+        text-align: center;
+    }
+
+    .link-list, .data-column-list {
+        margin-left: 3em;
+    }
+}
