@@ -51,7 +51,10 @@ app.get('/static/autotrack.js', function(req, res) {
     );
 });
 
-app.use('/static', express.static('static'));
+// On Azure Nodejs, we can't rely on process.cwd() being
+// the root directory of this project. Instead, we'll explicitly
+// provide the path.
+app.use('/static', express.static(path.join(__dirname, '..', 'static')));
 
 app.get('/export.csv', exportCsv);
 
