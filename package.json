@@ -1,6 +1,6 @@
 {
   "name": "fitbit-export",
-  "version": "1.2.4",
+  "version": "1.2.5",
   "description": "A webapp to make exporting fitbit data easier",
   "main": "app/fitbit-export",
   "scripts": {
@@ -39,7 +39,7 @@
     "autotrack": "^0.6.4",
     "connect": "^2.19.4",
     "ejs": "^1.0.0",
-    "express": "^4.4.1",
+    "express": "^4.13.4",
     "i": "^0.3.2",
     "json2csv": "^2.2.1",
     "lodash": "^2.4.1",

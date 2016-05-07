@@ -3777,8 +3777,7 @@ meter {
     z-index: 1001; }
 
 .modal {
-  max-width: 600px;
-  border-radius: 0px; }
+  max-width: 600px; }
   .tiny > .modal {
     max-width: 300px; }
   .small > .modal {
