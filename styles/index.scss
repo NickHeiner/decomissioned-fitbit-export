@@ -16,6 +16,8 @@
 body {
     background-color: $primary-color;
 
+    $button-size-increase-factor: 1.5;
+
     // Foundation offers a bunch of vars to control font-size,
     // but I don't think that setting them in a breakpoing mixin
     // does anything.
@@ -24,7 +26,13 @@ body {
     // and on my phone. However, shrinking the desktop view makes it look like ass.
     // I'm not sure what to do about this.
     @include breakpoint(small) {
-        font-size: $paragraph-font-size * 3;
+        &, p, li, a.button {
+            font-size: $paragraph-font-size * 2.5;
+        }
+
+        .button.large {
+            font-size: $button-font-size * 2.5 * $button-size-increase-factor;
+        }
 
         h1 {
             font-size: $h1-font-size * 2;
@@ -36,7 +44,13 @@ body {
     }
 
     @include breakpoint(large) {
-        font-size: $paragraph-font-size;
+        &, p, li, a.button {
+            font-size: $paragraph-font-size;
+        }
+
+        .button.large {
+            font-size: ($button-font-size * map-get($button-sizes, large)) * $button-size-increase-factor;
+        }
 
         h1 {
             font-size: $h1-font-size;
@@ -132,5 +146,9 @@ body {
 .explanation {
     h2 {
         text-align: center;
+    }
+
+    .link-list, .data-column-list {
+        margin-left: 3em;
     }
 }
