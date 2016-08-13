@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <meta name="description" content="Free, open source app to export your Fitbit data to a csv file.">
+    <title>Fitbit Data Export</title>
+    <link rel="stylesheet" href="/static/index.css" />
+    <script>
+      (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+      (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+      m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+      })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+      ga('create', 'UA-55391906-1', 'auto');
+      ga('require', 'autotrack');
+      ga('send', 'pageview');
+
+    </script>
+</head>
+<script type="text/javascript">
+    var appInsights=window.appInsights||function(config){
+        function s(config){t[config]=function(){var i=arguments;t.queue.push(function(){t[config].apply(t,i)})}}var t={config:config},r=document,f=window,e="script",o=r.createElement(e),i,u;for(o.src=config.url||"//az416426.vo.msecnd.net/scripts/a/ai.0.js",r.getElementsByTagName(e)[0].parentNode.appendChild(o),t.cookie=r.cookie,t.queue=[],i=["Event","Exception","Metric","PageView","Trace"];i.length;)s("track"+i.pop());return config.disableExceptionTracking||(i="onerror",s("_"+i),u=f[i],f[i]=function(config,r,f,e,o){var s=u&&u(config,r,f,e,o);return s!==!0&&t["_"+i](config,r,f,e,o),s}),t
+    }({
+        instrumentationKey:"cac42e7f-723f-42e3-8b8b-34997c8f7c09"
+    });
+
+    window.appInsights=appInsights;
+    appInsights.trackPageView();
+</script>
+<script type="text/javascript" src="/static/autotrack.js"></script>
+<body>
+    <div class="grid-block vertical">
+        <div class="full-width-grid-content">
+            <div class="primary title-bar">
+                <span class="title left">Fitbit Data Export</span>
+                <span class="right">
+                    <% if (showUser) { %>
+                        <% if (!user) { %>
+                            <a href="/auth/fitbit"
+                                data-event-category="auth"
+                                data-event-action="log-in"
+                                data-event-label="method"
+                                data-event-value="title-bar">
+                                Log in with Fitbit
+                            </a>
+                        <% } else { %>
+                            Logged in as <%= user.displayName %>
+                            <img class="user-avatar" src="<%= user._json.user.avatar150 %>"/>
+                        <% } %>
+                    <% } %>
+                </span>
+            </div>
+        </div>
+
+        <div class="main">

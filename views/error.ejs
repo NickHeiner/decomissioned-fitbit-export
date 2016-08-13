@@ -1,0 +1,15 @@
+<%- include('./header', {showUser: false}) %>
+<div class="grid-block">
+    <div class="grid-container">
+        <h1>Oops! Something broke.</h1>
+        <p>Here's the error:</p>
+        <pre class="error-stack"><%= err.stack %></pre>
+        <p>To report this, <a href="https://github.com/NickHeiner/fitbit-export/issues">file an issue on GitHub.</a> Please paste this full error, and provide a detailed description of what you were doing. Thanks!</p>
+    </div>
+</div>
+
+<script>
+    ga('send', 'event', 'error', <%- JSON.stringify(err.stack) %>);
+</script>
+<%- include('./footer') %>
+ 

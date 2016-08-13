@@ -23,7 +23,7 @@ app.use(connect.session({secret: getConfig(app).sessionSecret}));
 app.use(passport.initialize());
 app.use(passport.session());
 
-app.get('/', function(req, res){
+app.get('/', function(req, res, next) {
     var userPath = ['session', 'passport', 'user'],
         traverseReq = traverse(req),
         userExists = traverseReq.has(userPath),
@@ -57,6 +57,13 @@ app.get('/static/autotrack.js', function(req, res) {
 app.use('/static', express.static(path.join(__dirname, '..', 'static')));
 
 app.get('/export.csv', exportCsv);
+
+app.use((err, req, res, next) => {
+    if (err) {
+        res.status(500);
+        res.render('error.ejs', {err});
+    }
+});
 
 // https://github.com/visionmedia/express/pull/2165
 app.set('views', path.join(__dirname, '..', 'views'));

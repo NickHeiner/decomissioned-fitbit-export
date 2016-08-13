@@ -5497,6 +5497,9 @@ body {
     body h2 {
       font-size: 2.3125rem; } }
 
+.error-stack {
+  margin-bottom: 1.25rem; }
+
 .hero-image {
   margin-top: -1px;
   background: transparent url("/static/images/marrowstone.jpg") no-repeat;
