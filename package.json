@@ -1,13 +1,14 @@
 {
   "name": "fitbit-export",
-  "version": "1.2.9",
+  "version": "1.2.10",
   "description": "A webapp to make exporting fitbit data easier",
   "main": "app/fitbit-export",
   "scripts": {
     "test": "grunt test",
     "build-styles": "node-sass styles/index.scss static/index.css",
     "build-styles-watch": "node-sass --watch styles/index.scss static/index.css",
-    "start": "npm run build-styles && node ./app/fitbit-export.js"
+    "start-dev": "npm run build-styles && npm run start",
+    "start": "node ./app/fitbit-export.js"
   },
   "repository": {
     "type": "git",
@@ -33,7 +34,7 @@
     "node-sass": "^3.4.2"
   },
   "engines": {
-    "node": "5.8.0"
+    "node": "6.3.0"
   },
   "dependencies": {
     "autotrack": "^0.6.4",

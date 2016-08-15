@@ -14,6 +14,7 @@ var express = require('express'),
     _ = require('lodash'),
     exportCsv = _.curry(require('./export-csv'))(app),
     auth = require('./auth'),
+    appVersion = require('../package').version,
     server;
 
 app.use(morgan());
@@ -36,6 +37,7 @@ app.get('/', function(req, res, next) {
 
 app.get('/diagnostics.json', function(req, res) {
     res.json({
+        appVersion, 
         nodeJsVersion: process.version
     });
 });
