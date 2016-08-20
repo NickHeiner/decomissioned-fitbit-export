@@ -50,7 +50,7 @@
     "newrelic": "^1.27.2",
     "oauth": "^0.9.14",
     "passport": "^0.3.2",
-    "passport-fitbit": "^1.1.0",
+    "passport-fitbit-oauth2": "^1.0.2",
     "q": "^1.4.1",
     "traverse": "^0.6.6"
   }

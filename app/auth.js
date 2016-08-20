@@ -3,7 +3,7 @@
 var passport = require('passport'),
     getConfig = require('./get-config'),
     url = require('url'),
-    FitbitStrategy = require('passport-fitbit').Strategy,
+    FitbitOAuth2Strategy = require('passport-fitbit-oauth2').FitbitOAuth2Strategy,
     callbackPath = '/auth/fitbit/callback';
 
 function auth(app) {
@@ -34,9 +34,9 @@ function auth(app) {
         pathname: callbackPath
     });
 
-    passport.use(new FitbitStrategy({
-        consumerKey: config.fitbitClientKey,
-        consumerSecret: config.fitbitClientSecret,
+    passport.use(new FitbitOAuth2Strategy({
+        clientID: config.fitbitClientKey,
+        clientSecret: config.fitbitClientSecret,
         callbackUrl: callbackUrl
     }, function(token, tokenSecret, profile, done) {
         console.log('Logged in user ', profile.id, ' with display name ', profile.displayName);
