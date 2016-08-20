@@ -2,7 +2,7 @@
 
 require('newrelic');
 
-var express = require('express'),
+const express = require('express'),
     app = express(),
     path = require('path'),
     morgan = require('morgan'),
@@ -15,7 +15,7 @@ var express = require('express'),
     exportCsv = _.curry(require('./export-csv'))(app),
     auth = require('./auth'),
     appVersion = require('../package').version,
-    server;
+    logger = require('./logger');
 
 app.use(morgan());
 
@@ -78,6 +78,6 @@ app.set('view engine', require('ejs'));
 
 auth(app);
 
-server = app.listen(getConfig(app).port, function() {
-    console.log(require('../package').name + ' express app listening at', server.address());
+const server = app.listen(getConfig(app).port, function() {
+    logger.info({address: server.address()}, 'App listening');
 });
