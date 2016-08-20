@@ -2,10 +2,9 @@
 
 require('newrelic');
 
-var express = require('express'),
+const express = require('express'),
     app = express(),
     path = require('path'),
-    morgan = require('morgan'),
     connect = require('connect'),
     traverse = require('traverse'),
     passport = require('passport'),
@@ -15,9 +14,14 @@ var express = require('express'),
     exportCsv = _.curry(require('./export-csv'))(app),
     auth = require('./auth'),
     appVersion = require('../package').version,
-    server;
+    bunyanMiddleware = require('bunyan-middleware'),
+    logger = require('./logger');
 
-app.use(morgan());
+// This is more verbose than I'd like but w/e
+app.use(bunyanMiddleware({
+    logger,
+    logName: 'reqId'
+}));
 
 app.use(connect.cookieParser());
 app.use(connect.session({secret: getConfig(app).sessionSecret}));
@@ -60,6 +64,11 @@ app.use('/static', express.static(path.join(__dirname, '..', 'static')));
 
 app.get('/export.csv', exportCsv);
 
+app.get('/auth-error', (req, res) => {
+    res.status(500);
+    res.render('error.ejs', {err: new Error('Authenticating with FitBit failed.')});
+});
+
 app.use((err, req, res, next) => {
     if (err) {
         res.status(500);
@@ -73,6 +82,6 @@ app.set('view engine', require('ejs'));
 
 auth(app);
 
-server = app.listen(getConfig(app).port, function() {
-    console.log(require('../package').name + ' express app listening at', server.address());
+const server = app.listen(getConfig(app).port, function() {
+    logger.info({address: server.address()}, 'App listening');
 });

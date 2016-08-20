@@ -3,20 +3,20 @@
 var passport = require('passport'),
     getConfig = require('./get-config'),
     url = require('url'),
-    FitbitStrategy = require('passport-fitbit').Strategy,
-    callbackPath = '/auth/fitbit/callback';
+    logger = require('./logger'),
+    FitbitOAuth2Strategy = require('passport-fitbit-oauth2').FitbitOAuth2Strategy;
 
 function auth(app) {
-    var config = getConfig(app),
-        callbackUrl;
+    const config = getConfig(app),
+        callbackPath = '/auth/fitbit/callback';
 
-    app.get('/auth/fitbit', passport.authenticate('fitbit'));
+    app.get('/auth/fitbit', passport.authenticate('fitbit', { scope: ['activity', 'profile', 'sleep', 'weight', 'nutrition']}));
     app.get(
         callbackPath,
-        passport.authenticate('fitbit', { failureRedirect: '/?error=auth_failed' }),
-        function(req, res) {
-            res.redirect('/');
-        }
+        passport.authenticate('fitbit', { 
+            successRedirect: '/',
+            failureRedirect: '/auth-error'
+        })
     );
 
     passport.serializeUser(function(user, done) {
@@ -27,22 +27,22 @@ function auth(app) {
         done(null, obj);
     });
 
-    callbackUrl = url.format({
+    const callbackUrl = url.format({
         protocol: 'http',
         host: config.host,
         port: config.port,
         pathname: callbackPath
     });
 
-    passport.use(new FitbitStrategy({
-        consumerKey: config.fitbitClientKey,
-        consumerSecret: config.fitbitClientSecret,
+    passport.use(new FitbitOAuth2Strategy({
+        clientID: config.fitbitClientKey,
+        clientSecret: config.fitbitClientSecret,
         callbackUrl: callbackUrl
-    }, function(token, tokenSecret, profile, done) {
-        console.log('Logged in user ', profile.id, ' with display name ', profile.displayName);
+    }, function(accessToken, refreshToken, profile, done) {
+        logger.info({profileId: profile.id, profileDisplayName: profile.displayName}, 'Logged in user');
 
-        profile.token = token;
-        profile.tokenSecret = tokenSecret;
+        profile.accessToken = accessToken;
+        profile.refreshToken = refreshToken;
 
         done(null, profile);
     }));
