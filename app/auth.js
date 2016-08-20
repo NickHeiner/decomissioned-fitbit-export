@@ -10,7 +10,7 @@ function auth(app) {
     const config = getConfig(app),
         callbackPath = '/auth/fitbit/callback';
 
-    app.get('/auth/fitbit', passport.authenticate('fitbit', { scope: ['activity', 'profile', 'sleep', 'weight']}));
+    app.get('/auth/fitbit', passport.authenticate('fitbit', { scope: ['activity', 'profile', 'sleep', 'weight', 'nutrition']}));
     app.get(
         callbackPath,
         passport.authenticate('fitbit', { 

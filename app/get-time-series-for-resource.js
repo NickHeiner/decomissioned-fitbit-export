@@ -27,9 +27,10 @@ function getTimeSeries(app, user, baseDate, period, resourceCategory, resourceSu
         got(requestUrl, {
                 headers: {
                     Authorization: `Bearer ${user.accessToken}`
-                }
+                },
+                json: true
             })
-            .then(data => transformFitbitResponse(JSON.parse(data)))
+            .then(res => transformFitbitResponse(res.body))
             .catch(err => {
                 if (err) {
                     // If this specific field complains, no need to bomb out the entire request;

@@ -19,8 +19,11 @@ module.exports.logStep = function(rawOpts, fn) {
         logOpts = _.omit(opts, ['level', 'step']); 
 
     logger[opts.level](logOpts, `Starting ${opts.step}`);
+
+    const startTime = new Date();
     return fn().then(res => {
-        logger[opts.level](logOpts, `Finished ${opts.step}`);
+        const finishedTime = new Date();
+        logger[opts.level](_.merge({}, logOpts, {durationMs: finishedTime - startTime}), `Finished ${opts.step}`);
         return res;
     });
 };
