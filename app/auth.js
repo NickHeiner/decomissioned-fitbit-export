@@ -10,13 +10,13 @@ function auth(app) {
     var config = getConfig(app),
         callbackUrl;
 
-    app.get('/auth/fitbit', passport.authenticate('fitbit'));
+    app.get('/auth/fitbit', passport.authenticate('fitbit', { scope: []}));
     app.get(
         callbackPath,
-        passport.authenticate('fitbit', { failureRedirect: '/?error=auth_failed' }),
-        function(req, res) {
-            res.redirect('/');
-        }
+        passport.authenticate('fitbit', { 
+            successRedirect: '/',
+            failureRedirect: '/auth-error'
+        })
     );
 
     passport.serializeUser(function(user, done) {

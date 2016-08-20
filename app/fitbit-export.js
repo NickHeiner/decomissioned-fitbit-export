@@ -60,6 +60,11 @@ app.use('/static', express.static(path.join(__dirname, '..', 'static')));
 
 app.get('/export.csv', exportCsv);
 
+app.get('/auth-error', (req, res) => {
+    res.status(500);
+    res.render('error.ejs', {err: new Error('Authenticating with FitBit failed.')});
+});
+
 app.use((err, req, res, next) => {
     if (err) {
         res.status(500);
