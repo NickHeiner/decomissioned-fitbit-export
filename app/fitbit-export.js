@@ -5,7 +5,6 @@ require('newrelic');
 const express = require('express'),
     app = express(),
     path = require('path'),
-    morgan = require('morgan'),
     connect = require('connect'),
     traverse = require('traverse'),
     passport = require('passport'),
@@ -15,9 +14,14 @@ const express = require('express'),
     exportCsv = _.curry(require('./export-csv'))(app),
     auth = require('./auth'),
     appVersion = require('../package').version,
+    bunyanMiddleware = require('bunyan-middleware'),
     logger = require('./logger');
 
-app.use(morgan());
+// This is more verbose than I'd like but w/e
+app.use(bunyanMiddleware({
+    logger,
+    logName: 'reqId'
+}));
 
 app.use(connect.cookieParser());
 app.use(connect.session({secret: getConfig(app).sessionSecret}));

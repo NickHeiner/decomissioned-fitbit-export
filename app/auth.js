@@ -3,6 +3,7 @@
 var passport = require('passport'),
     getConfig = require('./get-config'),
     url = require('url'),
+    logger = require('./logger'),
     FitbitOAuth2Strategy = require('passport-fitbit-oauth2').FitbitOAuth2Strategy;
 
 function auth(app) {
@@ -39,7 +40,7 @@ function auth(app) {
         clientSecret: config.fitbitClientSecret,
         callbackUrl: callbackUrl
     }, function(token, tokenSecret, profile, done) {
-        console.log(`Logged in user ${profile.id} with display name ${profile.displayName}`);
+        logger.info({profileId: profile.id, profileDisplayName: profile.displayName}, 'Logged in user');
 
         profile.token = token;
         profile.tokenSecret = tokenSecret;
