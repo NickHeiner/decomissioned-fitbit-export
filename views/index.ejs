@@ -46,6 +46,7 @@
                     <li>Body weight</li>
                 </ul>
                 <p>This is available to all Fitbit users. No premium required!</p>
+                <p>If you are a free Fitbit user, you can only download 31 days worth of data. This app will download all data.</p>
             </div>
         </div>
         <div class="grid-block">
@@ -70,6 +71,9 @@
                 <h2>Trust</h2>
                 <p>
                     This app does not persist your data at any time. The data just passes straight through from the Fitbit API to you. You can verify this for yourself because the entire app is <a href="https://github.com/NickHeiner/fitbit-export">open source</a>. Additionally, your Fitbit credentials are not shared with this app; you just log in with Fitbit and provide this app temporary permission to access your data so you can download that data. This app requests read-only permission from Fitbit; by signing in to this app, you do not permit it to change any of your data.
+                </p>
+                <p>
+                    This app requests the bare minimum amount of data from FitBit necessary to do the extract. When you authenticate, you'll see a warning message from FitBit saying "Warning! This app is not using HTTPS to securely obtain your permission." This error shows up because this app uses HTTP instead of HTTPS, because HTTPS is expensive, and this is a side-project with no funding 😃. The risk you're taking is that the traffic between this server and your machine is unencrypted, so a third party could observe it. 
                 </p>
             </div>
         </div>
@@ -128,7 +132,7 @@
         <div class="grid-block">
             <div class="grid-container">
                 <h2>Want to help?</h2>
-                <p>If you can code, you're welcome to send me a pull request on <a href="https://github.com/NickHeiner/fitbit-export/issues">GitHub</a>. If you can't code, but you would like to support this app, you can <a href="http://paypal.me/nth">donate</a>. This app is limited in the amount of data it can extract because I'm just doing this as a side-project and don't want to spend a lot of money on it; if enough money is donated, I'll buy a better server setup that will allow the app to extract all available data.</p>
+                <p>If you can code, you're welcome to send me a pull request on <a href="https://github.com/NickHeiner/fitbit-export/issues">GitHub</a>. If you can't code, but you would like to support this app, you can <a href="http://paypal.me/nth">donate</a>. This app is limited in the amount of data it can extract because I'm just doing this as a side-project and don't want to spend a lot of money on it; if enough money is donated, I'll buy a better server setup that will allow the app to extract all available data, or upgrade to use an encrypted connection so your export is more secure.</p>
             </div>
         </div>
     </div>
