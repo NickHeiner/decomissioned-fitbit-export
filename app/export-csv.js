@@ -5,7 +5,7 @@ var getTimeSeries = require('./get-time-series'),
     _ = require('lodash'),
     json2csv = require('json2csv');
 
-function exportCsv(app, req, res) {
+function exportCsv(app, req, res, next) {
     if (!req.user) {
         res.redirect('/');
         return;
@@ -15,9 +15,7 @@ function exportCsv(app, req, res) {
         // assume that all entries have the same keys
         var keys = _.keys(_.first(timeSeries));
         res.send(json2csv({data: timeSeries, fields: keys}));
-    }).fail(function(err) {
-        throw err;
-    });
+    }).fail(next);
 }
 
 module.exports = exportCsv;
