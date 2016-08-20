@@ -22,7 +22,6 @@ function getTimeSeries(app, user, baseDate, period, resourceCategory, resourceSu
             })
         });
 
-    logger.warn({accessToken: user.accessToken}, 'got accessToken');
     return logStep({step: 'requesting data url', requestUrl}, () => 
         got(requestUrl, {
                 headers: {
