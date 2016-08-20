@@ -15,7 +15,7 @@ function getTimeSeries(app, user, baseDate, period, resourceCategory, resourceSu
             'https://api.fitbit.com/oauth/access_token',
             config.fitbitClientKey,
             config.fitbitClientSecret,
-            '1.0',
+            '2.0',
             null,
             'HMAC-SHA1'
         ),
