@@ -7,9 +7,8 @@ var passport = require('passport'),
     FitbitOAuth2Strategy = require('passport-fitbit-oauth2').FitbitOAuth2Strategy;
 
 function auth(app) {
-    var config = getConfig(app);
-
-    const callbackPath = '/auth/fitbit/callback';
+    const config = getConfig(app),
+        callbackPath = '/auth/fitbit/callback';
 
     app.get('/auth/fitbit', passport.authenticate('fitbit', { scope: ['activity', 'profile', 'sleep', 'weight']}));
     app.get(
