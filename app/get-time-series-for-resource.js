@@ -7,20 +7,10 @@ const q = require('q'),
     _ = require('lodash'),
     logger = require('./logger'),
     logStep = logger.logStep,
-    OAuth = require('oauth');
+    got = require('got');
 
 function getTimeSeries(app, user, baseDate, period, resourceCategory, resourceSubcategory) {
-
-    var config = getConfig(app),
-        oauth = new OAuth.OAuth(
-            'https://api.fitbit.com/oauth/request_token',
-            'https://api.fitbit.com/oauth/access_token',
-            config.fitbitClientKey,
-            config.fitbitClientSecret,
-            '2.0',
-            null,
-            'HMAC-SHA1'
-        ),
+    const config = getConfig(app),
         requestUrl = url.format({
             protocol: 'https',
             hostname: 'api.fitbit.com',
@@ -32,29 +22,28 @@ function getTimeSeries(app, user, baseDate, period, resourceCategory, resourceSu
             })
         });
 
-    return logStep({step: 'requesting data url', requestUrl}, () => new Promise((resolve, reject) =>
-        // I wanted to use q.ninvoke here but it didn't work for whatever reason.
-        oauth.get(
-            requestUrl,
-            user.token,
-            user.tokenSecret,
-            function(err, data) {
+    logger.warn({accessToken: user.accessToken}, 'got accessToken');
+    return logStep({step: 'requesting data url', requestUrl}, () => 
+        got(requestUrl, {
+                headers: {
+                    Authorization: `Bearer ${user.accessToken}`
+                }
+            })
+            .then(data => transformFitbitResponse(JSON.parse(data)))
+            .catch(err => {
                 if (err) {
                     // If this specific field complains, no need to bomb out the entire request;
                     // we'll just say we didn't get anything
                     if (err.statusCode === 400) {
                         logger.warn({requestUrl, userId: user.id}, 'Request resulted in a 400');
-                        resolve([]);
-                        return;
+                        return [];
                     }
-                    reject(err);
-                    return;
+                    err.requestUrl = requestUrl;
+                    logger.error({err, errData: err}, 'Fitbit API request failed.');
+                    throw err;
                 }
-
-                resolve(transformFitbitResponse(JSON.parse(data)));
-            }
-        )
-    ));
+            })
+    );
 }
 
 module.exports = getTimeSeries;

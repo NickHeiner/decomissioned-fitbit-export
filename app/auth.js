@@ -11,7 +11,7 @@ function auth(app) {
 
     const callbackPath = '/auth/fitbit/callback';
 
-    app.get('/auth/fitbit', passport.authenticate('fitbit', { scope: ['activity', 'profile']}));
+    app.get('/auth/fitbit', passport.authenticate('fitbit', { scope: ['activity', 'profile', 'sleep', 'weight']}));
     app.get(
         callbackPath,
         passport.authenticate('fitbit', { 
@@ -39,11 +39,11 @@ function auth(app) {
         clientID: config.fitbitClientKey,
         clientSecret: config.fitbitClientSecret,
         callbackUrl: callbackUrl
-    }, function(token, tokenSecret, profile, done) {
+    }, function(accessToken, refreshToken, profile, done) {
         logger.info({profileId: profile.id, profileDisplayName: profile.displayName}, 'Logged in user');
 
-        profile.token = token;
-        profile.tokenSecret = tokenSecret;
+        profile.accessToken = accessToken;
+        profile.refreshToken = refreshToken;
 
         done(null, profile);
     }));
