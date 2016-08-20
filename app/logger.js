@@ -14,13 +14,13 @@ module.exports = logger;
 
 module.exports.logStep = function(rawOpts, fn) {
     const opts = _.merge({
-        level: 'info'
-    }, rawOpts),
-        logOpts = _.omit(opts, 'info', 'step'); 
+            level: 'info'
+        }, rawOpts),
+        logOpts = _.omit(opts, ['level', 'step']); 
 
-    logger[opts.level](opts, `Starting ${opts.step}`);
+    logger[opts.level](logOpts, `Starting ${opts.step}`);
     return fn().then(res => {
-        logger[opts.level](opts, `Finished ${opts.step}`);
+        logger[opts.level](logOpts, `Finished ${opts.step}`);
         return res;
     });
 };

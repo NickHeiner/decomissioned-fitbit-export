@@ -21,7 +21,6 @@ function getTimeSeries(app, user, baseDate, period, resourceCategory, resourceSu
             null,
             'HMAC-SHA1'
         ),
-        deferred = q.defer(),
         requestUrl = url.format({
             protocol: 'https',
             hostname: 'api.fitbit.com',
@@ -33,7 +32,7 @@ function getTimeSeries(app, user, baseDate, period, resourceCategory, resourceSu
             })
         });
 
-    return logStep({step: 'Requesting data url', requestUrl}, () => new Promise((resolve, reject) =>
+    return logStep({step: 'requesting data url', requestUrl}, () => new Promise((resolve, reject) =>
         // I wanted to use q.ninvoke here but it didn't work for whatever reason.
         oauth.get(
             requestUrl,
