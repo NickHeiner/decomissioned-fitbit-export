@@ -1,11 +1,23 @@
 <%- include('./header', {showUser: false}) %>
 <div class="grid-block">
     <div class="grid-container">
-        <h1>Oops! Something broke.</h1>
+        <h1>
+            <% if (isFitbitProblem) { %>
+                Fitbit broke.
+            <% } else { %>
+                Oops! Something broke.
+            <% } %>
+        </h1>
         <p>Here's the error:</p>
         <pre class="error-stack"><%= JSON.stringify(err, null, 2) %></pre>
         <pre class="error-stack"><%= err.stack %></pre>
-        <p>To report this, <a href="https://github.com/NickHeiner/fitbit-export/issues">file an issue on GitHub.</a> Please paste this full error, and provide a detailed description of what you were doing. Thanks!</p>
+        <p>
+            <% if (isFitbitProblem) { %>
+                Fitbit's servers crashed when trying to produce your data. You can report this to me on <a href="https://github.com/NickHeiner/fitbit-export/issues">GitHub.</a>, but to be honest there's not much I'll be able to do about Fitbit being broken. You can also report this to Fitbit directly on their <a href="https://community.fitbit.com/t5/Web-API/bd-p/dev">Developer Board</a>. Good luck! 
+            <% } else { %>
+                To report this, <a href="https://github.com/NickHeiner/fitbit-export/issues">file an issue on GitHub.</a> Please paste this full error, and provide a detailed description of what you were doing. Thanks!
+            <% } %>
+        </p>
     </div>
 </div>
 

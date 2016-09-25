@@ -21,7 +21,10 @@ var _ = require('lodash'),
             'minutesLightlyActive',
             'minutesFairlyActive',
             'minutesVeryActive',
-            'activityCalories',
+
+            // This endpoint is bombing out for some reason.
+            // https://community.fitbit.com/t5/Web-API/504-Error-Code-for-activityCalories/m-p/1579598#M6393
+            // 'activityCalories',
         ],
         sleep: [
             'startTime',

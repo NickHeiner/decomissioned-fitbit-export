@@ -11,6 +11,7 @@ const express = require('express'),
     getConfig = require('./get-config'),
     moment = require('moment'),
     _ = require('lodash'),
+    _inRange = require('lodash.inrange'),
     exportCsv = _.curry(require('./export-csv'))(app),
     auth = require('./auth'),
     appVersion = require('../package').version,
@@ -72,7 +73,7 @@ app.get('/auth-error', (req, res) => {
 app.use((err, req, res, next) => {
     if (err) {
         res.status(500);
-        res.render('error.ejs', {err});
+        res.render('error.ejs', {err, isFitbitProblem: _inRange(err.statusCode, 500, 600)});
     }
 });
 
