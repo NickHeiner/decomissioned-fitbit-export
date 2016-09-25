@@ -26,22 +26,20 @@ function getTimeSeries(app, user, baseDate, period, resourceCategory, resourceSu
         got(requestUrl, {
                 headers: {
                     Authorization: `Bearer ${user.accessToken}`
-                },
-                json: true
-            })
-            .then(res => transformFitbitResponse(res.body))
-            .catch(err => {
-                if (err) {
-                    // If this specific field complains, no need to bomb out the entire request;
-                    // we'll just say we didn't get anything
-                    if (err.statusCode === 400) {
-                        logger.warn({requestUrl, userId: user.id}, 'Request resulted in a 400');
-                        return [];
-                    }
-                    err.requestUrl = requestUrl;
-                    logger.error({err, errData: err}, 'Fitbit API request failed.');
-                    throw err;
                 }
+            })
+            .then(res => transformFitbitResponse(JSON.parse(res.body)))
+            .catch(err => {
+                // If this specific field complains, no need to bomb out the entire request;
+                // we'll just say we didn't get anything
+                if (err.statusCode === 400) {
+                    logger.warn({requestUrl, userId: user.id}, 'Request resulted in a 400');
+                    return [];
+                }
+                err.requestUrl = requestUrl;
+                err.responseBody = err.response.body;
+                logger.error({err, errData: err}, 'Fitbit API request failed.');
+                throw err;
             })
     );
 }
