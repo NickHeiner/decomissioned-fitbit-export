@@ -14,6 +14,8 @@ function exportCsv(app, req, res, next) {
     getTimeSeries(app, req.user).then(function(timeSeries) {
         // assume that all entries have the same keys
         var keys = _.keys(_.first(timeSeries));
+
+        res.set('Content-Type', 'text/plain');
         res.send(json2csv({data: timeSeries, fields: keys}));
     }).fail(next);
 }
