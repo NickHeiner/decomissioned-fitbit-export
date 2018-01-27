@@ -15,7 +15,7 @@ rm -rf node_modules
 yarn --production
 FUNC_NAME=$(json name -f package.json )
 FUNC_DIR=$(pwd)
+zip -r ../$FUNC_NAME.zip *
 cd ..
-zip -r $FUNC_NAME.zip $FUNC_DIR 
 cd $1 
 yarn

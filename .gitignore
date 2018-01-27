@@ -13,3 +13,4 @@ pids
 node_modules
 
 v2/lambda/*.zip
+v2/terraform/.terraform/plugins/

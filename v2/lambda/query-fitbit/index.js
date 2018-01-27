@@ -1,3 +1,5 @@
 /* eslint-disable no-console */
 
-console.log('success');
+exports.handler = () => {
+  console.log('success');
+};
