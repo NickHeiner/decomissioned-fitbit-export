@@ -1,0 +1,28 @@
+{
+  "name": "query-fitbit",
+  "version": "1.0.0",
+  "private": true,
+  "main": "index.js",
+  "scripts": {
+    "lint": "eslint . --fix --max-warnings 0 --cache",
+    "lint:fix": "yarn run lint --fix",
+    "test": "yarn run lint"
+  },
+  "dependencies": {},
+  "eslintConfig": {
+    "env": {
+      "es6": true,
+      "node": true
+    },
+    "extends": "nth/base",
+    "rules": {
+      "no-empty": "warn",
+      "no-trailing-spaces": "warn",
+      "no-undef": "error"
+    }
+  },
+  "devDependencies": {
+    "eslint": "^4.16.0",
+    "eslint-config-nth": "^1.0.2"
+  }
+}
