@@ -20,3 +20,10 @@ You must have the following env vars defined:
 ### Deployment
 This site is deployed to Microsoft Azure. Be aware of [the node_modules issue](http://stackoverflow.com/questions/37090522/force-node-modules-to-be-reinstalled) when deploying, since that
 can create inconsistency between local and deployed development.
+
+
+## v2
+I'm redoing this with a new approach.
+
+### Development
+The sensitive terraform files are encrypted with git-crypt, and I have the only key to unlock them. If you want to run your own instance of this project, you'll need to delete those `.tfstate` files, point Terraform to your own AWS account, and recreate the state.
