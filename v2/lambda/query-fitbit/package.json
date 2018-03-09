@@ -4,11 +4,16 @@
   "private": true,
   "main": "index.js",
   "scripts": {
+    "start": "node demo.js",
     "lint": "eslint . --fix --max-warnings 0 --cache",
     "lint:fix": "yarn run lint --fix",
     "test": "yarn run lint"
   },
-  "dependencies": {},
+  "dependencies": {
+    "bunyan": "^1.8.12",
+    "bunyan-format": "^0.2.1",
+    "got": "^8.2.0"
+  },
   "eslintConfig": {
     "env": {
       "es6": true,

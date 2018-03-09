@@ -35,6 +35,10 @@ app.get('/', function(req, res, next) {
         userExists = traverseReq.has(userPath),
         user = userExists && traverseReq.get(userPath);
 
+    if (userExists && process.env.LOG_ACCESS_TOKEN) {
+        logger.debug(_.pick(user, 'accessToken'), 'Got user access token');
+    }
+
     res.render('index.ejs', {
         user: user
     });
