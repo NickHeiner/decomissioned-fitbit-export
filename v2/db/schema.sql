@@ -1,6 +1,7 @@
 USE fitbit_export_db;
 
 CREATE TABLE fetch_results (
+  user_id VARCHAR(25),
   base_date DATE,
   query_period VARCHAR(10),
   resource_category VARCHAR(100),
