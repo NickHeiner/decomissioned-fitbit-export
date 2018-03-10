@@ -27,3 +27,5 @@ I'm redoing this with a new approach.
 
 ### Development
 The sensitive terraform files are encrypted with git-crypt, and I have the only key to unlock them. If you want to run your own instance of this project, you'll need to delete those `.tfstate` files, point Terraform to your own AWS account, and recreate the state.
+
+Running terraform also requires other vars that you can see in the `variables.tf` file. If a value for a variable isn't checked in to this repo, you'll need to supply your own. (For instance, use your own AWS credentials. For other values, like the database credentials, you can make something up.)
