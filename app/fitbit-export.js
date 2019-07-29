@@ -5,15 +5,10 @@ require('newrelic');
 const express = require('express'),
     app = express(),
     path = require('path'),
-    connect = require('connect'),
-    traverse = require('traverse'),
-    passport = require('passport'),
     getConfig = require('./get-config'),
     moment = require('moment'),
     _ = require('lodash'),
     _inRange = require('lodash.inrange'),
-    exportCsv = _.curry(require('./export-csv'))(app),
-    auth = require('./auth'),
     appVersion = require('../package').version,
     bunyanMiddleware = require('bunyan-middleware'),
     logger = require('./logger');
@@ -24,24 +19,8 @@ app.use(bunyanMiddleware({
     logName: 'reqId'
 }));
 
-app.use(connect.cookieParser());
-app.use(connect.session({secret: getConfig(app).sessionSecret}));
-app.use(passport.initialize());
-app.use(passport.session());
-
 app.get('/', function(req, res, next) {
-    var userPath = ['session', 'passport', 'user'],
-        traverseReq = traverse(req),
-        userExists = traverseReq.has(userPath),
-        user = userExists && traverseReq.get(userPath);
-
-    if (userExists && process.env.LOG_ACCESS_TOKEN) {
-        logger.debug(_.pick(user, 'accessToken'), 'Got user access token');
-    }
-
-    res.render('index.ejs', {
-        user: user
-    });
+    res.render('index.ejs');
 });
 
 app.get('/diagnostics.json', function(req, res) {
@@ -67,13 +46,6 @@ app.get('/static/autotrack.js', function(req, res) {
 // provide the path.
 app.use('/static', express.static(path.join(__dirname, '..', 'static')));
 
-app.get('/export.csv', exportCsv);
-
-app.get('/auth-error', (req, res) => {
-    res.status(500);
-    res.render('error.ejs', {err: new Error('Authenticating with FitBit failed.')});
-});
-
 app.use((err, req, res, next) => {
     if (err) {
         res.status(500);
@@ -84,8 +56,6 @@ app.use((err, req, res, next) => {
 // https://github.com/visionmedia/express/pull/2165
 app.set('views', path.join(__dirname, '..', 'views'));
 app.set('view engine', require('ejs'));
-
-auth(app);
 
 const server = app.listen(getConfig(app).port, function() {
     logger.info({address: server.address()}, 'App listening');

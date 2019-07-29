@@ -30,26 +30,4 @@
 <script type="text/javascript" src="/static/autotrack.js"></script>
 <body>
     <div class="grid-block vertical">
-        <div class="full-width-grid-content">
-            <div class="primary title-bar">
-                <span class="title left"><a href="/">Fitbit Data Export</a></span>
-                <span class="right">
-                    <% if (showUser) { %>
-                        <% if (!user) { %>
-                            <a href="/auth/fitbit"
-                                data-event-category="auth"
-                                data-event-action="log-in"
-                                data-event-label="method"
-                                data-event-value="title-bar">
-                                Log in with Fitbit
-                            </a>
-                        <% } else { %>
-                            Logged in as <%= user.displayName %>
-                            <img class="user-avatar" src="<%= user._json.user.avatar150 %>"/>
-                        <% } %>
-                    <% } %>
-                </span>
-            </div>
-        </div>
-
         <div class="main">
